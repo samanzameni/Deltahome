@@ -1,0 +1,24 @@
+<div *ngIf="checkLogin" class="container-scroller">
+  <app-navbar></app-navbar>
+  <div class="container-fluid page-body-wrapper">
+    <app-sidebar id="a"></app-sidebar>
+    <div class="main-panel">
+      <div class="content-wrapper">
+        <router-outlet></router-outlet>
+      </div>
+      <app-footer></app-footer>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="!checkLogin">
+  <div class="container">
+    <div class="row align-items-center" style="margin-top: 15%">
+      <div class="col align-items-center">
+        <app-login></app-login>
+      </div>
+
+    </div>
+  </div>
+
+</div>

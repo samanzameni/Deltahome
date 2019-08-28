@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\dist",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\alerts",
+    "\\src\\app\\badges",
+    "\\src\\app\\breadcrumbs",
+    "\\src\\app\\buttons",
+    "\\src\\app\\carousel",
+    "\\src\\app\\dashboard",
+    "\\src\\app\\forms"
+  ],
+  "SelectedNode": "\\src\\app\\dashboard\\dashboard.component.html",
+  "PreviewInSolutionExplorer": false
+}
