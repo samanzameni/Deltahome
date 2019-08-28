@@ -1,0 +1,363 @@
+<div class="row">
+  <div class="col-12 grid-margin">
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Base Info</h3>
+        <p class="card-description">
+          Add New Items and Edit existing Items
+        </p>
+        <hr>
+        <form [formGroup]="baseForm"  class="form-sample" novalidate >
+          <p class="card-description">
+            Region:
+          </p>
+          <div class="row">
+            <div class="col-md-2">
+              <div class="form-group row">
+                <div class="col-sm">
+                  <div class="form-radio">
+                    <label class="form-check-label">
+
+                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios111"
+                              value="1" [(ngModel)]="model.radio" [ngModelOptions]="{standalone: true}" >
+                      Add
+                    </label>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <div class="form-radio">
+                    <label class="form-check-label">
+                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios211"
+                              value="2" [(ngModel)]="model.radio" [ngModelOptions]="{standalone: true}" >
+                      Edit
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Country:</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="Region" [(ngModel)]="model.Region" required>
+                    <option>Home</option>
+                    <!--<option></option>-->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Add/Edit:</label>
+                <div class="col-sm-9">
+                  <input type="number" class="form-control" formControlName="phone" [(ngModel)]="model.Phone" required/>
+                </div>
+              </div>
+              <div *ngIf="baseForm.controls['phone'].invalid && (baseForm.controls['phone'].dirty || baseForm.controls['phone'].touched)" class="alert alert-danger">
+                <div *ngIf="baseForm.controls['phone'].errors?.required">
+                  Phone is required.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <button type="submit" class="btn btn-primary btn-sm" [disabled]="baseForm.invalid" >Add</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">State:</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="Region" [(ngModel)]="model.Region" required>
+                    <option>Home</option>
+                    <!--<option></option>-->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">lat:lng:</label>
+                <div class="col-sm-9">
+
+                </div>
+              </div>
+
+            </div>
+            <div class="col-md-2">
+              <button type="submit" class="btn btn-primary btn-sm" [disabled]="baseForm.invalid" >Map</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">City:</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="Region" [(ngModel)]="model.Region" required>
+                    <option>Home</option>
+                    <!--<option></option>-->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-2">
+
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">
+
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Region:</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="Region" [(ngModel)]="model.Region" required>
+                    <option>Home</option>
+                    <!--<option></option>-->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+            <div class="col-md-2">
+
+            </div>
+          </div>
+          <p class="card-description">
+            Floor Cover:
+          </p>
+          <div class="row">
+            <div class="col-md-2">
+              <div class="form-group row">
+                <div class="col-sm">
+                  <div class="form-radio">
+                    <label class="form-check-label">
+
+                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios311"
+                              value="1" [(ngModel)]="model.radio" [ngModelOptions]="{standalone: true}" >
+                      Add
+                    </label>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <div class="form-radio">
+                    <label class="form-check-label">
+                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios321"
+                              value="2" [(ngModel)]="model.radio" [ngModelOptions]="{standalone: true}" >
+                      Edit
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Country:</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="Region" [(ngModel)]="model.Region" required>
+                    <option>Home</option>
+                    <!--<option></option>-->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Add/Edit:</label>
+                <div class="col-sm-9">
+                  <input type="number" class="form-control" formControlName="phone" [(ngModel)]="model.Phone" required/>
+                </div>
+              </div>
+              <div *ngIf="baseForm.controls['phone'].invalid && (baseForm.controls['phone'].dirty || baseForm.controls['phone'].touched)" class="alert alert-danger">
+                <div *ngIf="baseForm.controls['phone'].errors?.required">
+                  Phone is required.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <button type="submit" class="btn btn-primary btn-sm" [disabled]="baseForm.invalid" >Add</button>
+            </div>
+          </div>
+          <p class="card-description">
+            Kitchen Service:
+          </p>
+          <div class="row">
+            <div class="col-md-2">
+              <div class="form-group row">
+                <div class="col-sm">
+                  <div class="form-radio">
+                    <label class="form-check-label">
+
+                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios411"
+                              value="1" [(ngModel)]="model.radio" [ngModelOptions]="{standalone: true}" >
+                      Add
+                    </label>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <div class="form-radio">
+                    <label class="form-check-label">
+                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios421"
+                              value="2" [(ngModel)]="model.radio" [ngModelOptions]="{standalone: true}" >
+                      Edit
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Country:</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="Region" [(ngModel)]="model.Region" required>
+                    <option>Home</option>
+                    <!--<option></option>-->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Add/Edit:</label>
+                <div class="col-sm-9">
+                  <input type="number" class="form-control" formControlName="phone" [(ngModel)]="model.Phone" required/>
+                </div>
+              </div>
+              <div *ngIf="baseForm.controls['phone'].invalid && (baseForm.controls['phone'].dirty || baseForm.controls['phone'].touched)" class="alert alert-danger">
+                <div *ngIf="baseForm.controls['phone'].errors?.required">
+                  Phone is required.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <button type="submit" class="btn btn-primary btn-sm" [disabled]="baseForm.invalid" >Add</button>
+            </div>
+          </div>
+          <p class="card-description">
+            Facility:
+          </p>
+          <div class="row">
+            <div class="col-md-2">
+              <div class="form-group row">
+                <div class="col-sm">
+                  <div class="form-radio">
+                    <label class="form-check-label">
+
+                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios511"
+                              value="1" [(ngModel)]="model.radio" [ngModelOptions]="{standalone: true}" >
+                      Add
+                    </label>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <div class="form-radio">
+                    <label class="form-check-label">
+                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios521"
+                              value="2" [(ngModel)]="model.radio" [ngModelOptions]="{standalone: true}" >
+                      Edit
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Country:</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="Region" [(ngModel)]="model.Region" required>
+                    <option>Home</option>
+                    <!--<option></option>-->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Add/Edit:</label>
+                <div class="col-sm-9">
+                  <input type="number" class="form-control" formControlName="phone" [(ngModel)]="model.Phone" required/>
+                </div>
+              </div>
+              <div *ngIf="baseForm.controls['phone'].invalid && (baseForm.controls['phone'].dirty || baseForm.controls['phone'].touched)" class="alert alert-danger">
+                <div *ngIf="baseForm.controls['phone'].errors?.required">
+                  Phone is required.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <button type="submit" class="btn btn-primary btn-sm" [disabled]="baseForm.invalid" >Add</button>
+            </div>
+          </div>
+          <p class="card-description">
+            Property:
+          </p>
+          <div class="row">
+            <div class="col-md-2">
+              <div class="form-group row">
+                <div class="col-sm">
+                  <div class="form-radio">
+                    <label class="form-check-label">
+
+                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios611"
+                              value="1" [(ngModel)]="model.radio" [ngModelOptions]="{standalone: true}" >
+                      Add
+                    </label>
+                  </div>
+                </div>
+                <div class="col-sm">
+                  <div class="form-radio">
+                    <label class="form-check-label">
+                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios621"
+                              value="2" [(ngModel)]="model.radio" [ngModelOptions]="{standalone: true}" >
+                      Edit
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label">Country:</label>
+                <div class="col-sm-9">
+                  <select class="form-control" formControlName="Region" [(ngModel)]="model.Region" required>
+                    <option>Home</option>
+                    <!--<option></option>-->
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group row">
+                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Add/Edit:</label>
+                <div class="col-sm-9">
+                  <input type="number" class="form-control" formControlName="phone" [(ngModel)]="model.Phone" required/>
+                </div>
+              </div>
+              <div *ngIf="baseForm.controls['phone'].invalid && (baseForm.controls['phone'].dirty || baseForm.controls['phone'].touched)" class="alert alert-danger">
+                <div *ngIf="baseForm.controls['phone'].errors?.required">
+                  Phone is required.
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <button type="submit" class="btn btn-primary btn-sm" [disabled]="baseForm.invalid" >Add</button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

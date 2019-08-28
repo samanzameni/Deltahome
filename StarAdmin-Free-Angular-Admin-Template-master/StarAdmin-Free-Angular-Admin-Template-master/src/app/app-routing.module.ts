@@ -22,6 +22,7 @@ import {LoginComponent} from './login/login.component';
 import {IndexComponent} from './index/index.component';
 import {PropertyListComponent} from './property-list/property-list.component';
 import {ImageuploadComponent} from './imageupload/imageupload.component';
+import {BaseInfoComponent} from './base-info/base-info.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -46,6 +47,7 @@ const routes: Routes = [
   { path: 'Index', component: IndexComponent},
   { path: 'PropertyList', component: PropertyListComponent},
   { path: 'ImageUpload', component: ImageuploadComponent},
+  { path: 'BaseInfo', component: BaseInfoComponent},
 ];
 
 @NgModule({

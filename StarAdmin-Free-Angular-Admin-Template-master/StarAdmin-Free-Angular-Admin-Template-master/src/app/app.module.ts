@@ -33,6 +33,7 @@ import {ToastrModule} from 'ngx-toastr';
 import { IndexComponent } from './index/index.component';
 import { PropertyListComponent } from './property-list/property-list.component';
 import { ImageuploadComponent } from './imageupload/imageupload.component';
+import { BaseInfoComponent } from './base-info/base-info.component';
 
 
 
@@ -64,7 +65,8 @@ import { ImageuploadComponent } from './imageupload/imageupload.component';
     LoginComponent,
     IndexComponent,
     PropertyListComponent,
-    ImageuploadComponent
+    ImageuploadComponent,
+    BaseInfoComponent
   ],
   imports: [
     BrowserModule,
