@@ -1,15 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6 offset-md-3">
+    <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-body">
+
       <h3>Choose File</h3>
       <form (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <input type="file" name="image"  />
+          <input type="file" name="image"  accept="image/*" (change)="fileProgress($event)"/>
+        </div>
+        <div *ngIf="fileUploadProgress">
+          Upload progress: {{ fileUploadProgress }}
+        </div>
+        <div class="mb-3" *ngIf="previewUrl">
+          <img [src]="previewUrl" height="auto" width="100%"/>
         </div>
         <div class="form-group">
           <button class="btn btn-primary">Submit</button>
         </div>
       </form>
     </div>
+  </div>
+</div>
   </div>
 </div>

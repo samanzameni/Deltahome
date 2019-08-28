@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ImageService} from './image.service';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpEventType} from '@angular/common/http';
 
 
 @Component({
@@ -9,10 +8,10 @@ import {HttpClient} from '@angular/common/http';
   styleUrls: ['./imageupload.component.scss']
 })
 export class ImageuploadComponent implements OnInit {
-
-  title = 'helloworld';
-
-  fileData = null;
+  title = 'ImageUpload';
+  fileUploadProgress: string = null;
+  previewUrl: any = null;
+  fileData: File = null;
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -20,17 +19,43 @@ export class ImageuploadComponent implements OnInit {
 
   }
 
-  fileProgress(fileInput: any) {
+  fileProgress(fileInput) {
     this.fileData = <File>fileInput.target.files[0];
+    this.preview();
   }
 
+
+  preview() {
+    // Show preview
+    const mimeType = this.fileData.type;
+    if (mimeType.match(/image\/*/) == null) {
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.readAsDataURL(this.fileData);
+    reader.onload = (_event) => {
+      this.previewUrl = reader.result;
+    };
+  }
   onSubmit() {
     const formData = new FormData();
-    formData.append('file', this.fileData);
-    this.http.post('url/to/your/api', formData)
-      .subscribe(res => {
-        console.log(res);
-        alert('SUCCESS !!');
+    this.fileUploadProgress = '0%';
+    formData.append('image', this.fileData , this.fileData.name);
+    this.http.post('url/to/your/api', formData, {
+      reportProgress: true,
+      observe: 'events'
+    })
+      .subscribe(events => {
+        if (events.type === HttpEventType.UploadProgress) {
+          this.fileUploadProgress = Math.round(events.loaded / events.total * 100) + '%';
+          console.log(this.fileUploadProgress);
+        } else if (events.type === HttpEventType.Response) {
+          this.fileUploadProgress = '';
+          console.log(events.body);
+          alert('SUCCESS !!');
+        }
+
       });
   }
 
