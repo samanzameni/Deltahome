@@ -4,12 +4,12 @@
     <div class="card">
       <div class="card-body">
 
-      <h3>Choose File</h3>
+      <h3>Choose Image</h3>
       <form (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <input type="file" name="image"  accept="image/*" (change)="fileProgress($event)"/>
+          <input type="file" class="custom-file-input" name="image" accept="image/*" (change)="fileProgress($event)"/>
         </div>
-        <div *ngIf="fileUploadProgress">
+        <div *ngIf="fileUploadProgress" style="color: #007bff;margin-bottom: 10px;">
           Upload progress: {{ fileUploadProgress }}
         </div>
         <div class="mb-3" *ngIf="previewUrl">
