@@ -25,7 +25,7 @@ import {ImageuploadComponent} from './imageupload/imageupload.component';
 import {BaseInfoComponent} from './base-info/base-info.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/Index', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'forms', component: FormsComponent },
   { path: 'buttons', component: ButtonsComponent},

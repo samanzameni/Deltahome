@@ -11,8 +11,8 @@
 
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label">Advisor:</label>
-                <div class="col-sm-9">
+                <label class="col-sm-4 col-form-label">Advisor:</label>
+                <div class="col-sm-8">
                   <select class="form-control" [(ngModel)]="model.Adviser" [ngModelOptions]="{standalone: true}">
                     <option value="1">tehran</option>
 
@@ -27,9 +27,9 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label" ><p style="color: red; float: left">*</p>
+                <label class="col-sm-4 col-form-label" ><p style="color: red; float: left">*</p>
                   Landlord:</label>
-                <div class="col-sm-9">
+                <div class="col-sm-8">
                   <input type="text" class="form-control" formControlName="landlord" [(ngModel)]="model.Landlord" required/>
                 </div>
 
@@ -42,8 +42,8 @@
             </div>
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Phone:</label>
-                <div class="col-sm-9">
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> Phone:</label>
+                <div class="col-sm-8">
                   <input type="number" class="form-control" formControlName="phone" [(ngModel)]="model.Phone" required/>
                 </div>
               </div>
@@ -55,8 +55,8 @@
             </div>
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left ">*</p> Mobile:</label>
-                <div class="col-sm-9">
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p> Mobile:</label>
+                <div class="col-sm-8">
                   <input type="number" class="form-control" formControlName="Mobile" [(ngModel)]="model.Mobile" required/>
                 </div>
               </div>
@@ -74,8 +74,8 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left ">*</p>Region:</label>
-                <div class="col-sm-9">
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Region:</label>
+                <div class="col-sm-8">
                   <select class="form-control" formControlName="Region" [(ngModel)]="model.Region" required>
                     <option>Home</option>
                     <!--<option></option>-->
@@ -92,8 +92,8 @@
 
             <div class="col-md-8">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left ">*</p> Address</label>
-                <div class="col-sm-9">
+                <label class="col-sm-2 col-form-label"><p style="color: red; float: left ">*</p> Address</label>
+                <div class="col-sm-10">
                   <input type="text" class="form-control" formControlName="Address" [(ngModel)]="model.Address" required/>
                 </div>
               </div>
@@ -110,8 +110,8 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left ">*</p>Property:</label>
-                <div class="col-sm-9">
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Property:</label>
+                <div class="col-sm-8">
                   <select class="form-control" formControlName="Property" [(ngModel)]="model.Property" required>
                     <option>Home</option>
                     <!--<option></option>-->
@@ -126,8 +126,8 @@
             </div>
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label">Usage:</label>
-                <div class="col-sm-9">
+                <label class="col-sm-4 col-form-label">Usage:</label>
+                <div class="col-sm-8">
                   <select class="form-control" [(ngModel)]="model.Usage" [ngModelOptions]="{standalone: true}">
                     <option>1</option>
 
@@ -138,9 +138,9 @@
 
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left ">*</p>Building
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Building
                   Position:</label>
-                <div class="col-sm-9">
+                <div class="col-sm-8">
                   <select class="form-control" formControlName="Building" [(ngModel)]="model.Building" required>
                     <option>1</option>
 
@@ -157,8 +157,8 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Storeys:</label>
-                <div class="col-sm-9">
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> Storeys:</label>
+                <div class="col-sm-8">
                   <input type="number" class="form-control" placeholder="0" formControlName="Storeys" [(ngModel)]="model.Storeys" required/>
                 </div>
               </div>
@@ -170,9 +170,9 @@
             </div>
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Apartment in
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> Apartment in
                   floor:</label>
-                <div class="col-sm-9">
+                <div class="col-sm-8">
                   <input type="number" class="form-control" formControlName="Apartment" [(ngModel)]="model.Apartment" required/>
                 </div>
               </div>
@@ -184,9 +184,9 @@
             </div>
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left ">*</p> Number of
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p> Number of
                   floors:</label>
-                <div class="col-sm-9">
+                <div class="col-sm-8">
                   <input type="number" class="form-control" formControlName="Number" [(ngModel)]="model.Number" required/>
                 </div>
               </div>
@@ -200,8 +200,8 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Floor:</label>
-                <div class="col-sm-9">
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> Floor:</label>
+                <div class="col-sm-8">
                   <input type="number" class="form-control" placeholder="0" formControlName="Floor" [(ngModel)]="model.Floor" required/>
                 </div>
               </div>
@@ -213,8 +213,8 @@
             </div>
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> No Apartment:</label>
-                <div class="col-sm-9">
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> No Apartment:</label>
+                <div class="col-sm-8">
                   <input type="number" class="form-control" placeholder="0" formControlName="No" [(ngModel)]="model.No" required/>
                 </div>
               </div>
@@ -229,8 +229,8 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Area:</label>
-                <div class="col-sm-7">
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> Area:</label>
+                <div class="col-sm-6">
                   <input type="number" class="form-control" formControlName="Area" [(ngModel)]="model.Area" required/>
                 </div>
                 <div class="col-sm-2" style="font-size: 12px; padding-top: 5px">sqm</div>
@@ -292,8 +292,8 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Building Age:</label>
-                <div class="col-sm-9">
+                <label class="4 col-form-label"><p style="color: red; float: left">*</p> Building Age:</label>
+                <div class="col-sm-8">
                   <input type="number" class="form-control" formControlName="Age" [(ngModel)]="model.Age" required/>
                 </div>
               </div>
@@ -392,8 +392,8 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left ">*</p>Kitchen:</label>
-                <div class="col-sm-9">
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Kitchen:</label>
+                <div class="col-sm-8">
                   <select class="form-control" formControlName="Kitchen" [(ngModel)]="model.Kitchen" required>
                     <option>Home</option>
                     <!--<option></option>-->
@@ -419,8 +419,8 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left ">*</p>Floor material:</label>
-                <div class="col-sm-9">
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Floor material:</label>
+                <div class="col-sm-8">
                   <select class="form-control" formControlName="material"  [(ngModel)]="model.material" required>
                     <option>Home</option>
                     <!--<option></option>-->
@@ -680,8 +680,8 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label">Status:</label>
-                <div class="col-sm-9">
+                <label class="col-sm-4 col-form-label">Status:</label>
+                <div class="col-sm-8">
                   <select class="form-control" [(ngModel)]="model.Status" [ngModelOptions]="{standalone: true}">
                     <option>Home</option>
                     <!--<option></option>-->
