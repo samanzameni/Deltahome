@@ -18,7 +18,7 @@
                   <div class="form-radio">
                     <label class="form-check-label">
 
-                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios111"
+                      <input  type="radio" class="form-check-input" name="4" id="membershipRadios111"
                               value="1" [(ngModel)]="base.RegionAddEdit" [ngModelOptions]="{standalone: true}" >
                       Add
                     </label>
@@ -27,7 +27,7 @@
                 <div class="col-sm">
                   <div class="form-radio">
                     <label class="form-check-label">
-                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios211"
+                      <input  type="radio" class="form-check-input" name="4" id="membershipRadios211"
                               value="2" [(ngModel)]="base.RegionAddEdit" [ngModelOptions]="{standalone: true}" >
                       Edit
                     </label>
@@ -50,12 +50,12 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Add/Edit:</label>
                 <div class="col-sm-9">
-                  <input type="number" class="form-control" formControlName="RegionAddEditInput" [(ngModel)]="base.RegionAddEditInput" required/>
+                  <input type="text" class="form-control" formControlName="RegionAddEditInput" [(ngModel)]="base.RegionAddEditInput" required/>
                 </div>
               </div>
               <div *ngIf="baseForm.controls['RegionAddEditInput'].invalid && (baseForm.controls['RegionAddEditInput'].dirty || baseForm.controls['RegionAddEditInput'].touched)" class="alert alert-danger">
                 <div *ngIf="baseForm.controls['RegionAddEditInput'].errors?.required">
-                  Phone is required.
+                  Add/Edit is required.
                 </div>
               </div>
             </div>
@@ -88,7 +88,7 @@
 
             </div>
             <div class="col-md-2">
-              <button type="submit" class="btn btn-primary btn-sm" [disabled]="baseForm.invalid" >Map</button>
+              <button type="submit" class="btn btn-primary btn-sm"  >Map</button>
             </div>
           </div>
           <div class="row">
@@ -145,8 +145,8 @@
                   <div class="form-radio">
                     <label class="form-check-label">
 
-                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios311"
-                              value="1" [(ngModel)]="base.FloorCoverAddEdit" [ngModelOptions]="{standalone: true}" >
+                      <input  type="radio" class="form-check-input" name="321" id="membershipRadios311"
+                              value="2" [(ngModel)]="base.FloorCoverAddEdit" [ngModelOptions]="{standalone: true}" >
                       Add
                     </label>
                   </div>
@@ -154,8 +154,8 @@
                 <div class="col-sm">
                   <div class="form-radio">
                     <label class="form-check-label">
-                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios321"
-                              value="2" [(ngModel)]="base.FloorCoverAddEdit" [ngModelOptions]="{standalone: true}" >
+                      <input  type="radio" class="form-check-input" name="321" id="membershipRadios321"
+                              value="1" [(ngModel)]="base.FloorCoverAddEdit" [ngModelOptions]="{standalone: true}" >
                       Edit
                     </label>
                   </div>
@@ -177,12 +177,12 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Add/Edit:</label>
                 <div class="col-sm-9">
-                  <input type="number" class="form-control" formControlName="FloorCoverAddEditIpout" [(ngModel)]="base.FloorCoverAddEditIpout" required/>
+                  <input type="text" class="form-control" formControlName="FloorCoverAddEditInput" [(ngModel)]="base.FloorCoverAddEditInput" required/>
                 </div>
               </div>
-              <div *ngIf="baseForm.controls['FloorCoverAddEditIpout'].invalid && (baseForm.controls['FloorCoverAddEditIpout'].dirty || baseForm.controls['FloorCoverAddEditIpout'].touched)" class="alert alert-danger">
-                <div *ngIf="baseForm.controls['FloorCoverAddEditIpout'].errors?.required">
-                  Phone is required.
+              <div *ngIf="baseForm.controls['FloorCoverAddEditInput'].invalid && (baseForm.controls['FloorCoverAddEditInput'].dirty || baseForm.controls['FloorCoverAddEditInput'].touched)" class="alert alert-danger">
+                <div *ngIf="baseForm.controls['FloorCoverAddEditInput'].errors?.required">
+                  Add/Edit is required.
                 </div>
               </div>
             </div>
@@ -200,7 +200,7 @@
                   <div class="form-radio">
                     <label class="form-check-label">
 
-                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios411"
+                      <input  type="radio" class="form-check-input" name="1" id="membershipRadios411"
                               value="1" [(ngModel)]="base.KitchenServiceAddEdit" [ngModelOptions]="{standalone: true}" >
                       Add
                     </label>
@@ -209,7 +209,7 @@
                 <div class="col-sm">
                   <div class="form-radio">
                     <label class="form-check-label">
-                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios421"
+                      <input  type="radio" class="form-check-input" name="1" id="membershipRadios421"
                               value="2" [(ngModel)]="base.KitchenServiceAddEdit" [ngModelOptions]="{standalone: true}" >
                       Edit
                     </label>
@@ -232,12 +232,12 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Add/Edit:</label>
                 <div class="col-sm-9">
-                  <input type="number" class="form-control" formControlName="KitchenServiceAddEditInput" [(ngModel)]="base.KitchenServiceAddEditInput" required/>
+                  <input type="text" class="form-control" formControlName="KitchenServiceAddEditInput" [(ngModel)]="base.KitchenServiceAddEditInput" required/>
                 </div>
               </div>
               <div *ngIf="baseForm.controls['KitchenServiceAddEditInput'].invalid && (baseForm.controls['KitchenServiceAddEditInput'].dirty || baseForm.controls['KitchenServiceAddEditInput'].touched)" class="alert alert-danger">
                 <div *ngIf="baseForm.controls['KitchenServiceAddEditInput'].errors?.required">
-                  Phone is required.
+                  Add/Edit is required.
                 </div>
               </div>
             </div>
@@ -255,7 +255,7 @@
                   <div class="form-radio">
                     <label class="form-check-label">
 
-                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios511"
+                      <input  type="radio" class="form-check-input" name="2" id="membershipRadios511"
                               value="1" [(ngModel)]="base.FacilityAddEdit" [ngModelOptions]="{standalone: true}" >
                       Add
                     </label>
@@ -264,7 +264,7 @@
                 <div class="col-sm">
                   <div class="form-radio">
                     <label class="form-check-label">
-                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios521"
+                      <input  type="radio" class="form-check-input" name="2" id="membershipRadios521"
                               value="2" [(ngModel)]="base.FacilityAddEdit" [ngModelOptions]="{standalone: true}" >
                       Edit
                     </label>
@@ -287,12 +287,12 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Add/Edit:</label>
                 <div class="col-sm-9">
-                  <input type="number" class="form-control" formControlName="FacilityAddEditInput" [(ngModel)]="base.FacilityAddEditInput" required/>
+                  <input type="text" class="form-control" formControlName="FacilityAddEditInput" [(ngModel)]="base.FacilityAddEditInput" required/>
                 </div>
               </div>
               <div *ngIf="baseForm.controls['FacilityAddEditInput'].invalid && (baseForm.controls['FacilityAddEditInput'].dirty || baseForm.controls['FacilityAddEditInput'].touched)" class="alert alert-danger">
                 <div *ngIf="baseForm.controls['FacilityAddEditInput'].errors?.required">
-                  Phone is required.
+                  Add/Edit is required.
                 </div>
               </div>
             </div>
@@ -310,7 +310,7 @@
                   <div class="form-radio">
                     <label class="form-check-label">
 
-                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios611"
+                      <input  type="radio" class="form-check-input" name="3" id="membershipRadios611"
                               value="1" [(ngModel)]="base.PropertyAddEdit" [ngModelOptions]="{standalone: true}" >
                       Add
                     </label>
@@ -319,7 +319,7 @@
                 <div class="col-sm">
                   <div class="form-radio">
                     <label class="form-check-label">
-                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios621"
+                      <input  type="radio" class="form-check-input" name="3" id="membershipRadios621"
                               value="2" [(ngModel)]="base.PropertyAddEdit" [ngModelOptions]="{standalone: true}" >
                       Edit
                     </label>
@@ -342,12 +342,12 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Add/Edit:</label>
                 <div class="col-sm-9">
-                  <input type="number" class="form-control" formControlName="phone" [(ngModel)]="base.PropertyAddEditInput" required/>
+                  <input type="text" class="form-control" formControlName="PropertyAddEditInput" [(ngModel)]="base.PropertyAddEditInput" required/>
                 </div>
               </div>
               <div *ngIf="baseForm.controls['PropertyAddEditInput'].invalid && (baseForm.controls['PropertyAddEditInput'].dirty || baseForm.controls['PropertyAddEditInput'].touched)" class="alert alert-danger">
                 <div *ngIf="baseForm.controls['PropertyAddEditInput'].errors?.required">
-                  Phone is required.
+                  Add/Edit is required.
                 </div>
               </div>
             </div>

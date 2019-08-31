@@ -10,16 +10,16 @@ import {Basevariabale} from './basevariabale';
 export class BaseInfoComponent implements OnInit {
 
   constructor(private bb: FormBuilder) {
-    this.createForm();
+    this.createForm1();
   }
   baseForm: FormGroup;
   base = new Basevariabale();
 
 
-  createForm() {
+  createForm1() {
     this.baseForm = this.bb.group({
       RegionAddEditInput: [null, Validators.required],
-      FloorCoverAddEditIpout: [null, Validators.required],
+      FloorCoverAddEditInput: [null, Validators.required],
       KitchenServiceAddEditInput: [null, Validators.required],
       FacilityAddEditInput: [null, Validators.required],
       PropertyAddEditInput: [null, Validators.required],

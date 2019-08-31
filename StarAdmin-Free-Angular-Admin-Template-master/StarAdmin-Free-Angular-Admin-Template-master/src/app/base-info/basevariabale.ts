@@ -7,7 +7,7 @@ export class Basevariabale {
   public RegionAddEditInput: string;
   public FloorCoverType: string;
   public FloorCoverAddEdit: boolean;
-  public FloorCoverAddEditIpout: string;
+  public FloorCoverAddEditInput: string;
   public KitchenServiceType: string;
   public KitchenServiceAddEdit: boolean;
   public KitchenServiceAddEditInput: string;
