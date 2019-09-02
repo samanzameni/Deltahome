@@ -7,14 +7,14 @@
             <img src="assets/images/faces/face1.jpg" alt="profile image">
           </div>
           <div class="text-wrapper">
-            <p class="profile-name">Mohammad Ohadi</p>
+            <p class="profile-name">{{DisplayName}}</p>
             <div>
               <small class="designation text-muted">Manager</small>
               <span class="status-indicator online"></span>
             </div>
           </div>
         </div>
-        <button class="btn btn-success btn-block" routerLink="/Index" routerLinkActive="active">
+        <button class="btn btn-success btn-block" (click)=" logout()">
           Index
         </button>
       </div>

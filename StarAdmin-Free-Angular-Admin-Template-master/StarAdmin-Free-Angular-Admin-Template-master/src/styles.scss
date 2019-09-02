@@ -57,14 +57,18 @@
   z-index: 999999;
 }
 .toast-top-right {
-  bottom: 12px;
-  right: 12px;
+  bottom: 3%;
+  right: 3%;
   color: #ffffff;
   background-color: #e65251;
   border-color: #e65251;
-  padding: 20px;
   border-radius: 20px;
 }
 #toast-container > div {
   opacity:1;
+}
+
+.toast-message
+{
+  margin: 15px;
 }
