@@ -30,6 +30,16 @@ export class ZameniformComponent implements OnInit {
       err => console.log(err)
       );
   }
+
+  onSubmit2() {
+    this.submitted = true;
+    return this.depositService.contactForm2().subscribe(
+      (res) => console.log(res),
+      err => console.log(err)
+    );
+  }
+
+
   createForm() {
     this.angForm = this.fb.group({
       landlord: [null, Validators.required],
@@ -54,6 +64,8 @@ export class ZameniformComponent implements OnInit {
       Tel: [null, Validators.required],
     });
   }
+
+
 
   ngOnInit() {
 

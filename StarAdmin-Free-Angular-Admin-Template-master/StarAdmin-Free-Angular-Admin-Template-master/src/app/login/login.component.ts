@@ -29,13 +29,13 @@ export class LoginComponent implements OnInit {
       let header = new HttpHeaders();
        header = header.set('Content-Type', 'application/x-www-form-urlencoded');
       return this.http.post('http://172.16.25.113/login', data, {headers: header}).subscribe(
-          (res) => {
+          (res: any) => {
             console.log(res);
             localStorage.setItem('access_token', res.access_token);
              localStorage.setItem('refresh_token', res.refresh_token);
             const decoded = jwt_decode(res.access_token);
             localStorage.setItem('DisplayName', decoded.DisplayName);
-             // location.reload();
+              location.reload();
             // return this.router.navigate(['/Index']);
           },
           err => {

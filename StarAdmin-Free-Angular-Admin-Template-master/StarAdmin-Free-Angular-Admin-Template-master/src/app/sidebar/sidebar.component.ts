@@ -15,21 +15,24 @@ export class SidebarComponent implements OnInit {
   }
   logout() {
     const token =  localStorage.getItem('access_token');
-   // localStorage.removeItem('access_token');
+      localStorage.removeItem('access_token');
     let myheader = new HttpHeaders();
-    myheader = myheader.set('Content-Type', 'application/json; charset=utf-8');
-    myheader = myheader.set('Authorization', token );
+    // myheader = myheader.set('Content-Type', 'application/json; charset=utf-8');
+    myheader = myheader.set('Authorization', 'Bearer ' + token);
 
-   // console.log(myheader);
-    return this.http.get('http://172.16.25.113/api/Account/logout', { headers: myheader, withCredentials: true }).subscribe(
+
+    return this.http.get('api/Account/logout', { headers: myheader, withCredentials: true }).subscribe(
       (res) => {
-        console.log(res); },
+        console.log(res); location.reload(); },
       (err) => {
       console.log(err);
+        if (err.status === 401) {
+          location.reload();
+        }
     }
 
       );
-    location.reload();
+
   }
 
 }
