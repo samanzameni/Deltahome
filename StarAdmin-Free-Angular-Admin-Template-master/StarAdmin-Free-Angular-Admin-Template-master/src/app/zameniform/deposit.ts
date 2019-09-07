@@ -1,6 +1,6 @@
 export class Deposit {
 
-    public Adviser: string;
+     public Adviser: any;
     public Landlord: any;
     public Phone: number;
     public Mobile: number;

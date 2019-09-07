@@ -12,10 +12,11 @@
             <div class="col-md-4">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Advisor:</label>
-                <div class="col-sm-8">
-                  <select class="form-control" [(ngModel)]="model.Adviser" [ngModelOptions]="{standalone: true}">
-                    <option value="1">tehran</option>
-
+                <div  class="col-sm-8">
+                  <select   class="form-control" >
+                    <option *ngFor="let i of listarray.listAdvisor" value="i.ID">
+                      {{i.fullName}}
+                    </option>
                   </select>
                 </div>
               </div>
@@ -77,8 +78,8 @@
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Region:</label>
                 <div class="col-sm-8">
                   <select class="form-control" formControlName="Region" [(ngModel)]="model.Region" required>
-                    <option>Home</option>
-                    <!--<option></option>-->
+                    <option *ngFor="let i of listarray.listRegion" value="i.ID">{{i.title}}</option>
+
                   </select>
                 </div>
               </div>
@@ -113,8 +114,8 @@
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Property:</label>
                 <div class="col-sm-8">
                   <select class="form-control" formControlName="Property" [(ngModel)]="model.Property" required>
-                    <option>Home</option>
-                    <!--<option></option>-->
+                    <option *ngFor="let i of listarray.listPropertys" value="i.ID">{{i.title}}</option>
+
                   </select>
                 </div>
               </div>
@@ -395,8 +396,8 @@
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Kitchen:</label>
                 <div class="col-sm-8">
                   <select class="form-control" formControlName="Kitchen" [(ngModel)]="model.Kitchen" required>
-                    <option>Home</option>
-                    <!--<option></option>-->
+                    <option *ngFor="let i of listarray.listKitchenService" value="i.ID">{{i.title}}</option>
+
                   </select>
                 </div>
               </div>
@@ -422,8 +423,8 @@
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Floor material:</label>
                 <div class="col-sm-8">
                   <select class="form-control" formControlName="material"  [(ngModel)]="model.material" required>
-                    <option>Home</option>
-                    <!--<option></option>-->
+                    <option *ngFor="let i of listarray.listFloorCover" value="i.ID">{{i.title}}</option>
+
                   </select>
                 </div>
               </div>

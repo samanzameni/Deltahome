@@ -1,7 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Deposit} from './deposit';
 import {DepositService} from './deposit.service';
+
+
+
+export class ListAdvisor {
+  public fullName: string;
+  public ID: number;
+}
+export class ListPropertys {
+  public title: string;
+  public ID: number;
+}
+export class ListFacility {
+  public title: string;
+  public ID: number;
+}
+export class ListFloorCover {
+  public title: string;
+  public ID: number;
+}
+export class ListKitchenService {
+  public title: string;
+  public ID: number;
+}
+export class ListRegion {
+  public title: string;
+  public ID: number;
+}
+export class Firstdata {
+  public listAdvisor: ListAdvisor[];
+  public listFacility: ListFacility[];
+  public listFloorCover: ListFloorCover[];
+  public listKitchenService: ListKitchenService[];
+  public listRegion: ListRegion[];
+  public listPropertys: ListPropertys[];
+}
+
 
 
 
@@ -13,14 +49,27 @@ import {DepositService} from './deposit.service';
 })
 export class ZameniformComponent implements OnInit {
 
-
+// let file =
   constructor(public depositService: DepositService, private fb: FormBuilder) {
     this.createForm();
+
   }
 
   angForm: FormGroup;
   model = new Deposit();
   submitted = false;
+  listarray = new Firstdata();
+
+
+
+  adviserarray() {
+    return this.depositService.contactForm2().subscribe(
+      (data) => { this.listarray = data;
+        console.log(this.listarray);
+        },
+    (err) => console.log(err)
+    );
+  }
 
 
   onSubmit() {
@@ -31,13 +80,7 @@ export class ZameniformComponent implements OnInit {
       );
   }
 
-  onSubmit2() {
-    this.submitted = true;
-    return this.depositService.contactForm2().subscribe(
-      (res) => console.log(res),
-      err => console.log(err)
-    );
-  }
+
 
 
   createForm() {
@@ -68,8 +111,9 @@ export class ZameniformComponent implements OnInit {
 
 
   ngOnInit() {
-
+    this.adviserarray();
   }
+
 
 
 
