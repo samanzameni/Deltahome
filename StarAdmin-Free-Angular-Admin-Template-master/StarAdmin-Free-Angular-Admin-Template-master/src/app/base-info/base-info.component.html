@@ -18,7 +18,7 @@
                   <div class="form-radio">
                     <label class="form-check-label">
 
-                      <input  type="radio" class="form-check-input" name="4" id="membershipRadios111"
+                      <input  type="radio" class="form-check-input" name="15" id="membershipRadios111"
                               value="1" [(ngModel)]="base.RegionAddEdit" [ngModelOptions]="{standalone: true}" >
                       Add
                     </label>
@@ -27,7 +27,7 @@
                 <div class="col-sm">
                   <div class="form-radio">
                     <label class="form-check-label">
-                      <input  type="radio" class="form-check-input" name="4" id="membershipRadios211"
+                      <input  type="radio" class="form-check-input" name="15" id="membershipRadios211"
                               value="2" [(ngModel)]="base.RegionAddEdit" [ngModelOptions]="{standalone: true}" >
                       Edit
                     </label>
@@ -39,7 +39,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Country:</label>
                 <div class="col-sm-9">
-                  <select class="form-control"  [(ngModel)]="base.RegionCountry"   >
+                  <select class="form-control"  [(ngModel)]="base.RegionCountry"  [ngModelOptions]="{standalone: true}" >
                     <option>Home</option>
                     <!--<option></option>-->
                   </select>
@@ -71,7 +71,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">State:</label>
                 <div class="col-sm-9">
-                  <select class="form-control"  [(ngModel)]="base.RegionState" required>
+                  <select class="form-control"  [(ngModel)]="base.RegionState" required [ngModelOptions]="{standalone: true}">
                     <option>Home</option>
                     <!--<option></option>-->
                   </select>
@@ -99,7 +99,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">City:</label>
                 <div class="col-sm-9">
-                  <select class="form-control"  [(ngModel)]="base.RegionCity" required>
+                  <select class="form-control"  [(ngModel)]="base.RegionCity" required [ngModelOptions]="{standalone: true}">
                     <option>Home</option>
                     <!--<option></option>-->
                   </select>
@@ -121,7 +121,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Region:</label>
                 <div class="col-sm-9">
-                  <select class="form-control"  [(ngModel)]="base.RegionRegion" required>
+                  <select class="form-control"  [(ngModel)]="base.RegionRegion" required [ngModelOptions]="{standalone: true}">
                     <option>Home</option>
                     <!--<option></option>-->
                   </select>
@@ -166,7 +166,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Type:</label>
                 <div class="col-sm-9">
-                  <select class="form-control"  [(ngModel)]="base.FloorCoverType" required>
+                  <select class="form-control"  [(ngModel)]="base.FloorCoverType" required [ngModelOptions]="{standalone: true}">
                     <option>Home</option>
                     <!--<option></option>-->
                   </select>
@@ -221,7 +221,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Type:</label>
                 <div class="col-sm-9">
-                  <select class="form-control" [(ngModel)]="base.KitchenServiceType" required>
+                  <select class="form-control" [(ngModel)]="base.KitchenServiceType" required [ngModelOptions]="{standalone: true}">
                     <option>Home</option>
                     <!--<option></option>-->
                   </select>
@@ -276,7 +276,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Type:</label>
                 <div class="col-sm-9">
-                  <select class="form-control"  [(ngModel)]="base.FacilityType" required>
+                  <select class="form-control"  [(ngModel)]="base.FacilityType" required [ngModelOptions]="{standalone: true}">
                     <option>Home</option>
                     <!--<option></option>-->
                   </select>
@@ -331,7 +331,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Type:</label>
                 <div class="col-sm-9">
-                  <select class="form-control" [(ngModel)]="base.PropertyType" required>
+                  <select class="form-control" [(ngModel)]="base.PropertyType" required [ngModelOptions]="{standalone: true}">
                     <option>Home</option>
                     <!--<option></option>-->
                   </select>
