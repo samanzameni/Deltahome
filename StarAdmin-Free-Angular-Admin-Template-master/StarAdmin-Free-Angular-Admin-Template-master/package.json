@@ -11,7 +11,10 @@
   },
   "private": true,
   "dependencies": {
-    "jwt-decode": "^2.2.0"
+    "@asymmetrik/ngx-leaflet": "^5.0.2",
+    "@types/leaflet": "^1.5.1",
+    "jwt-decode": "^2.2.0",
+    "leaflet": "^1.5.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.802.2",

@@ -23,6 +23,7 @@ import {IndexComponent} from './index/index.component';
 import {PropertyListComponent} from './property-list/property-list.component';
 import {ImageuploadComponent} from './imageupload/imageupload.component';
 import {BaseInfoComponent} from './base-info/base-info.component';
+import {LeafletComponent} from './leaflet/leaflet.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/Index', pathMatch: 'full' },
@@ -48,6 +49,7 @@ const routes: Routes = [
   { path: 'PropertyList', component: PropertyListComponent},
   { path: 'ImageUpload', component: ImageuploadComponent},
   { path: 'BaseInfo', component: BaseInfoComponent},
+  { path: 'leaflet', component: LeafletComponent},
 ];
 
 @NgModule({
