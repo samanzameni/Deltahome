@@ -42,7 +42,7 @@ const routes: Routes = [
   { path: 'tooltips', component: TooltipsComponent },
   { path: 'carousel', component: CarouselComponent },
   { path: 'tabs', component: TabsComponent },
-  { path: 'zameniform', component: ZameniformComponent},
+  { path: 'AddProperty', component: ZameniformComponent},
   { path: 'Login', component: LoginComponent},
   { path: 'Index', component: IndexComponent},
   { path: 'PropertyList', component: PropertyListComponent},
