@@ -1,61 +1,33 @@
 export class Deposit {
 
-     public Adviser: any;
-    public Landlord: any;
-    public Phone: number;
-    public Mobile: number;
-    public Region: string;
-    public Address: any;
-    public Property: string;
-    public Usage: string;
-    public Building: string;
-    public Storeys: number;
-    public Apartment: number;
-    public Number: number;
-    public Floor: number;
-    public No: number;
-    public Area: number;
-    public Bath: number;
-    public Bed: number;
-    public FullFurnished: boolean;
-    public SemiFurnished: boolean;
-    public Age: number;
-    public Renovated: boolean;
-    public Monthly: number;
-    public Iranian: boolean;
-    public Foreigner: boolean;
-    public radio: string;
-    public Kitchen: string;
-    public Openkitchen: boolean;
-    public material: string;
-    public Tel: number;
-    public Garage: boolean;
-    public Storage: boolean;
-    public Fire: boolean;
-    public Radiator: boolean;
-    public Package: boolean;
-    public Fan: boolean;
-    public Chiller: boolean;
-    public Natural: boolean;
-    public Cooler: boolean;
-    public Yard: boolean;
-    public Patio: boolean;
-    public Lift: boolean;
-    public Video: boolean;
-    public Garagedooropener: boolean;
-    public centraltvantenna: boolean;
-    public Vacant: boolean;
-    public Sauna: boolean;
-    public Swimming: boolean;
-    public Jacuzzi: boolean;
-    public Balcony: boolean;
-    public Lobby: boolean;
-    public Meeting: boolean;
-    public Janitor: boolean;
-    public ADSL: boolean;
-    public Status: string;
-    public SEODescription: string;
-    public SEOTitle: string;
-
-
+    public adviser_id: any;
+    public ownerName: any;
+    public ownerPhone: number;
+    public ownerMobile: number;
+    public region_id: string;
+    public address: any;
+    public propertyType_id: string;
+    public shopCenterCount: number; // storeys
+    public floorNumber: number; // number of floor
+    public floorCount: number; //  floor
+    public unitInFloor: number; // apartment in floor
+    public buildingArea: number;
+    public bathCount: number;
+    public bedCount: number;
+    public furnished: boolean;
+    public semiFurnished: boolean;
+    public buildingAge: number;
+    public renovate: boolean;
+    public monthlyRent: number;
+    public kitchenService_id: string;
+    public isAdvertisement: boolean; // open kitchen
+    public  floorCover_id: string; // material
+    public telLineCount: number;
+    public garage: boolean;
+    public storage: boolean;
+    public firePlug: boolean;
+    public depositFacilities: any[] = [0];
+    public statusId: string;
+    public seoDescription: string;
+    public seoTitle: string;
 }

@@ -20,7 +20,7 @@ export class DepositService {
 
 
   contactForm( formdata: Deposit ) {
-    return this.http.post<Deposit>(this.ServerUrl + 'deposit', formdata, this.httpOptions);
+    return this.http.post<Deposit>(this.ServerUrl + 'deposit/Add', formdata, this.httpOptions);
   }
   contactForm2() {
     return this.http.get<Firstdata>(this.ServerUrl + 'deposit/index', this.httpOptions);

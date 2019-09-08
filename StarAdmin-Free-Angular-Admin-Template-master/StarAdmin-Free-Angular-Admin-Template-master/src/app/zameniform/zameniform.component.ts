@@ -7,27 +7,27 @@ import {DepositService} from './deposit.service';
 
 export class ListAdvisor {
   public fullName: string;
-  public ID: number;
+  public id: number;
 }
 export class ListPropertys {
   public title: string;
-  public ID: number;
+  public id: number;
 }
 export class ListFacility {
   public title: string;
-  public ID: number;
+  public id: number;
 }
 export class ListFloorCover {
   public title: string;
-  public ID: number;
+  public id: number;
 }
 export class ListKitchenService {
   public title: string;
-  public ID: number;
+  public id: number;
 }
 export class ListRegion {
   public title: string;
-  public ID: number;
+  public id: number;
 }
 export class Firstdata {
   public listAdvisor: ListAdvisor[];
@@ -49,7 +49,7 @@ export class Firstdata {
 })
 export class ZameniformComponent implements OnInit {
 
-// let file =
+
   constructor(public depositService: DepositService, private fb: FormBuilder) {
     this.createForm();
 
@@ -59,10 +59,17 @@ export class ZameniformComponent implements OnInit {
   model = new Deposit();
   submitted = false;
   listarray = new Firstdata();
+  public i: any = 0;
 
+  setfacility(facilityid, event) {
+    if (event.target.checked) {
+      this.model.depositFacilities.push(facilityid);
+    } else {
+      this.i = this.model.depositFacilities.indexOf((facilityid));
+      this.model.depositFacilities.splice(this.i, 1); }
+  }
 
-
-  adviserarray() {
+  advisorarray() {
     return this.depositService.contactForm2().subscribe(
       (data) => { this.listarray = data;
         console.log(this.listarray);
@@ -82,39 +89,33 @@ export class ZameniformComponent implements OnInit {
 
 
 
-
   createForm() {
     this.angForm = this.fb.group({
-      landlord: [null, Validators.required],
-      phone: [null, Validators.required],
-      Mobile: [null, Validators.required],
-      Region: [null, Validators.required],
-      Address: [null, Validators.required],
-      Property: [null, Validators.required],
-      Building: [null, Validators.required],
-      Storeys: [null, Validators.required],
-      Apartment: [null, Validators.required],
-      Number: [null, Validators.required],
-      Floor: [null, Validators.required],
-      No: [null, Validators.required],
-      Area: [null, Validators.required],
-      Bed: [null, Validators.required],
-      Bath: [null, Validators.required],
-      Age: [null, Validators.required],
-      Monthly: [null, Validators.required],
-      Kitchen: [null, Validators.required],
-      material: [null, Validators.required],
-      Tel: [null, Validators.required],
+      ownerName: [null, Validators.required],
+      ownerPhone: [null, Validators.required],
+      ownerMobile: [null, Validators.required],
+      region_id: [null, Validators.required],
+      address: [null, Validators.required],
+      propertyType_id: [null, Validators.required],
+      unitInFloor: [null, Validators.required],
+      floorNumber: [null, Validators.required],
+      floorCount: [null, Validators.required],
+      buildingArea: [null, Validators.required],
+      bedCount: [null, Validators.required],
+      bathCount: [null, Validators.required],
+      buildingAge: [null, Validators.required],
+      monthlyRent: [null, Validators.required],
+      kitchenService_id: [null, Validators.required],
+      floorCover_id: [null, Validators.required],
+      telLineCount: [null, Validators.required],
     });
   }
 
 
 
   ngOnInit() {
-    this.adviserarray();
+    this.advisorarray();
   }
-
-
 
 
 
