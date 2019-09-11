@@ -2,43 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Deposit} from './deposit';
 import {DepositService} from './deposit.service';
-
-
-
-export class ListAdvisor {
-  public fullName: string;
-  public id: number;
-}
-export class ListPropertys {
-  public title: string;
-  public id: number;
-}
-export class ListFacility {
-  public title: string;
-  public id: number;
-}
-export class ListFloorCover {
-  public title: string;
-  public id: number;
-}
-export class ListKitchenService {
-  public title: string;
-  public id: number;
-}
-export class ListRegion {
-  public title: string;
-  public id: number;
-}
-export class Firstdata {
-  public listAdvisor: ListAdvisor[];
-  public listFacility: ListFacility[];
-  public listFloorCover: ListFloorCover[];
-  public listKitchenService: ListKitchenService[];
-  public listRegion: ListRegion[];
-  public listPropertys: ListPropertys[];
-}
-
-
+import {Firstdata} from '../Classes/firstdata';
 
 
 

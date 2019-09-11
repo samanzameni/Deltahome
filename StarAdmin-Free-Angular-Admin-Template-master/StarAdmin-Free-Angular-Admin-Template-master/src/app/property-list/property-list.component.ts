@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DepositList} from './deposit-list';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Depositcount} from './depositcount';
-
-
+import {SearchBase} from '../Classes/searchbase';
 
 
 @Component({
@@ -20,8 +19,10 @@ export class PropertyListComponent implements OnInit {
   constructor(private http: HttpClient) {
 
   }
-  depositList = new DepositList();
+  depositList: DepositList[];
   depositCount = new Depositcount();
+  searchBase: SearchBase[];
+
   ServerUrl = 'http://172.16.25.113/api/';
 
   httpOptions = {
@@ -32,10 +33,10 @@ export class PropertyListComponent implements OnInit {
   };
 
   getlistdeposit(pagenumber) {
-    return this.http.get<DepositList>(this.ServerUrl + 'deposit/list?pagenumber=' + pagenumber, this.httpOptions).subscribe(
+    return this.http.get<DepositList[]>(this.ServerUrl + 'deposit/list?pagenumber=' + pagenumber, this.httpOptions).subscribe(
       (data) => {
         this.depositList = data;
-        console.log(this.depositList);
+       console.log(this.depositList);
       },
       (err) => console.log(err)
     );
@@ -52,6 +53,16 @@ export class PropertyListComponent implements OnInit {
   }
 
 
+  getSearchBase() {
+    return this.http.get<SearchBase[]>(this.ServerUrl + 'deposit/searchbase', this.httpOptions).subscribe(
+      (data) => {
+        this.searchBase = data;
+        console.log(this.searchBase);
+      },
+      (err) => console.log(err)
+    );
+  }
+
 
   onPageChange(event) {
     this.getlistdeposit(event);
@@ -61,7 +72,7 @@ export class PropertyListComponent implements OnInit {
   ngOnInit() {
     this.getCountDeposit();
     this.getlistdeposit(1);
-
+    this.getSearchBase();
   }
 
 }

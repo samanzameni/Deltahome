@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Deposit} from './deposit';
-import { Firstdata} from './zameniform.component';
+import {Firstdata} from '../Classes/firstdata';
+
 
 
 @Injectable({
