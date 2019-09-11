@@ -1,15 +1,67 @@
 import { Component, OnInit } from '@angular/core';
+import {DepositList} from './deposit-list';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {Depositcount} from './depositcount';
+
+
+
 
 @Component({
   selector: 'app-property-list',
   templateUrl: './property-list.component.html',
   styleUrls: ['./property-list.component.scss']
 })
+
+
 export class PropertyListComponent implements OnInit {
 
-  constructor() { }
+
+
+  constructor(private http: HttpClient) {
+
+  }
+  depositList = new DepositList();
+  depositCount = new Depositcount();
+  ServerUrl = 'http://172.16.25.113/api/';
+
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json',
+       // 'Authorization': 'Bearer ' + this.token
+    }
+    )
+  };
+
+  getlistdeposit(pagenumber) {
+    return this.http.get<DepositList>(this.ServerUrl + 'deposit/list?pagenumber=' + pagenumber, this.httpOptions).subscribe(
+      (data) => {
+        this.depositList = data;
+        console.log(this.depositList);
+      },
+      (err) => console.log(err)
+    );
+  }
+
+  getCountDeposit() {
+    return this.http.get<Depositcount>(this.ServerUrl + 'deposit/count', this.httpOptions).subscribe(
+      (data) => {
+        this.depositCount = data;
+        console.log(this.depositCount);
+      },
+      (err) => console.log(err)
+    );
+  }
+
+
+
+  onPageChange(event) {
+    this.getlistdeposit(event);
+    console.log(event);
+  }
 
   ngOnInit() {
+    this.getCountDeposit();
+    this.getlistdeposit(1);
+
   }
 
 }

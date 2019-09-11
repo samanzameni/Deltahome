@@ -160,11 +160,11 @@
           </select>
         </div>
         </div>
-        <div class="col-md-4 col-sm-6 offset-md-3">
+        <div class="col-md-4 col-sm-6">
           <div class="card">
             <div class="card-body">
 
-              <ngb-pagination [collectionSize]="40" [pageSize]="10" [page]="1" aria-label="Default pagination" class="pagination-rounded"></ngb-pagination>
+              <ngb-pagination [collectionSize]="depositCount.count" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" [directionLinks]="true" [pageSize]="depositCount.size" [page]="1" aria-label="Default pagination" class="pagination-rounded" (pageChange)="onPageChange($event)"></ngb-pagination>
             </div>
           </div>
         </div>

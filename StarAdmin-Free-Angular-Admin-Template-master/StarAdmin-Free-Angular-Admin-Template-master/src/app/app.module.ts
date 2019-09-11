@@ -36,6 +36,7 @@ import { ImageuploadComponent } from './imageupload/imageupload.component';
 import { BaseInfoComponent } from './base-info/base-info.component';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import { LeafletComponent } from './leaflet/leaflet.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -81,7 +82,8 @@ import { LeafletComponent } from './leaflet/leaflet.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-   LeafletModule.forRoot()
+   LeafletModule.forRoot(),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
