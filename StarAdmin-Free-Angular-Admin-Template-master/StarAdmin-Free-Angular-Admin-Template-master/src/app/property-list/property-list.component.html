@@ -9,11 +9,7 @@
           <div class="form-group">
             <label for="exampleSelectPrimary73">Advisor</label>
             <select class="form-control border-primary" id="exampleSelectPrimary73">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <option *ngFor="let i of searchBase?.listAdvisor" value="i.id">{{i.fullName}}</option>
             </select>
           </div>
         </div>
@@ -21,11 +17,7 @@
           <div class="form-group">
             <label for="exampleSelectPrimary23">Status</label>
             <select class="form-control border-primary" id="exampleSelectPrimary23">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <option *ngFor="let i of searchBase?.listStatus" value="i.id">{{i.title}}</option>
             </select>
           </div>
         </div>
@@ -33,11 +25,7 @@
           <div class="form-group">
             <label for="exampleSelectPrimary40">Region</label>
             <select class="form-control border-primary" id="exampleSelectPrimary40">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <option *ngFor="let i of searchBase?.listRegion" value="i.id">{{i.title}}</option>
             </select>
           </div>
         </div>
@@ -47,11 +35,7 @@
           <div class="form-group">
             <label for="exampleSelectPrimary39">Property Type</label>
             <select class="form-control border-primary" id="exampleSelectPrimary39">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <option *ngFor="let i of searchBase?.listPropertys" value="i.id">{{i.title}}</option>
             </select>
           </div>
         </div>
@@ -59,19 +43,16 @@
           <div class="form-group">
             <label for="exampleSelectPrimary38">Property Size</label>
             <select class="form-control border-primary" id="exampleSelectPrimary38">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <option *ngFor="let i of searchBase?.listArea" value="i.id" >{{i.title}}</option>
+
             </select>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
             <label for="exampleSelectPrimary37">Price Range</label>
-            <select *ngFor="let i of searchBase" class="form-control border-primary" id="exampleSelectPrimary37">
-              <option>{{i.listPrice.minPrice}}-{{i.listPrice.maxPrice}}</option>
+            <select  class="form-control border-primary" id="exampleSelectPrimary37">
+              <option *ngFor="let i of searchBase?.listPrice" value="i.id">{{i.title}}</option>
             </select>
           </div>
         </div>
@@ -105,11 +86,7 @@
           <div class="form-group">
             <label for="exampleSelectPrimary43">Furnish</label>
             <select class="form-control border-primary" id="exampleSelectPrimary43">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <option *ngFor="let i of searchBase?.listDecorat" value="i.id">{{i.title}}</option>
             </select>
           </div>
         </div>

@@ -14,15 +14,11 @@ import {SearchBase} from '../Classes/searchbase';
 
 export class PropertyListComponent implements OnInit {
 
+  constructor(private http: HttpClient) {}
 
-
-  constructor(private http: HttpClient) {
-
-  }
   depositList: DepositList[];
   depositCount = new Depositcount();
-  searchBase: SearchBase[];
-
+  searchBase: SearchBase;
   ServerUrl = 'http://172.16.25.113/api/';
 
   httpOptions = {
@@ -52,9 +48,8 @@ export class PropertyListComponent implements OnInit {
     );
   }
 
-
   getSearchBase() {
-    return this.http.get<SearchBase[]>(this.ServerUrl + 'deposit/searchbase', this.httpOptions).subscribe(
+    return this.http.get<SearchBase>(this.ServerUrl + 'deposit/searchbase', this.httpOptions).subscribe(
       (data) => {
         this.searchBase = data;
         console.log(this.searchBase);
@@ -62,7 +57,6 @@ export class PropertyListComponent implements OnInit {
       (err) => console.log(err)
     );
   }
-
 
   onPageChange(event) {
     this.getlistdeposit(event);
