@@ -8,24 +8,24 @@
         <div class="col">
           <div class="form-group">
             <label for="exampleSelectPrimary73">Advisor</label>
-            <select class="form-control border-primary" id="exampleSelectPrimary73">
-              <option *ngFor="let i of searchBase?.listAdvisor" value="i.id">{{i.fullName}}</option>
+            <select class="form-control border-primary" id="exampleSelectPrimary73" [(ngModel)]="param.adviserId" >
+              <option *ngFor="let i of searchBase?.listAdvisor"  [ngValue]="i.id">{{i.fullName}}</option>
             </select>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
             <label for="exampleSelectPrimary23">Status</label>
-            <select class="form-control border-primary" id="exampleSelectPrimary23">
-              <option *ngFor="let i of searchBase?.listStatus" value="i.id">{{i.title}}</option>
+            <select class="form-control border-primary" id="exampleSelectPrimary23" [(ngModel)]="param.statusId" >
+              <option *ngFor="let i of searchBase?.listStatus" [ngValue]="i.id">{{i.title}}</option>
             </select>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
             <label for="exampleSelectPrimary40">Region</label>
-            <select class="form-control border-primary" id="exampleSelectPrimary40">
-              <option *ngFor="let i of searchBase?.listRegion" value="i.id">{{i.title}}</option>
+            <select class="form-control border-primary" id="exampleSelectPrimary40" [(ngModel)]="param.regionId" >
+              <option *ngFor="let i of searchBase?.listRegion" [ngValue]="i.id">{{i.title}}</option>
             </select>
           </div>
         </div>
@@ -34,16 +34,16 @@
         <div class="col">
           <div class="form-group">
             <label for="exampleSelectPrimary39">Property Type</label>
-            <select class="form-control border-primary" id="exampleSelectPrimary39">
-              <option *ngFor="let i of searchBase?.listPropertys" value="i.id">{{i.title}}</option>
+            <select class="form-control border-primary" id="exampleSelectPrimary39" [(ngModel)]="param.propertyId" >
+              <option *ngFor="let i of searchBase?.listPropertys" [ngValue]="i.id">{{i.title}}</option>
             </select>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
             <label for="exampleSelectPrimary38">Property Size</label>
-            <select class="form-control border-primary" id="exampleSelectPrimary38">
-              <option *ngFor="let i of searchBase?.listArea" value="i.id" >{{i.title}}</option>
+            <select class="form-control border-primary" id="exampleSelectPrimary38" [(ngModel)]="param.areaRangeId" >
+              <option *ngFor="let i of searchBase?.listArea" [ngValue]="i.id" >{{i.title}}</option>
 
             </select>
           </div>
@@ -51,8 +51,8 @@
         <div class="col">
           <div class="form-group">
             <label for="exampleSelectPrimary37">Price Range</label>
-            <select  class="form-control border-primary" id="exampleSelectPrimary37">
-              <option *ngFor="let i of searchBase?.listPrice" value="i.id">{{i.title}}</option>
+            <select  class="form-control border-primary" id="exampleSelectPrimary37" [(ngModel)]="param.priceRangeId" >
+              <option *ngFor="let i of searchBase?.listPrice" [ngValue]="i.id">{{i.title}}</option>
             </select>
           </div>
         </div>
@@ -63,7 +63,7 @@
           <div class="col-6">
             <div class="form-group">
               <label for="exampleSelectPrimary35">Bed(s)</label>
-              <select class="form-control border-primary" id="exampleSelectPrimary35">
+              <select class="form-control border-primary" id="exampleSelectPrimary35" [(ngModel)]="param.bedroomCount" >
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">+3</option>
@@ -73,7 +73,7 @@
           <div class="col-6">
             <div class="form-group">
               <label for="exampleSelectPrimary36">Bath(s)</label>
-              <select class="form-control border-primary" id="exampleSelectPrimary36">
+              <select class="form-control border-primary" id="exampleSelectPrimary36"  [(ngModel)]="param.bathroomCount" >
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">+3</option>
@@ -85,20 +85,20 @@
         <div class="col">
           <div class="form-group">
             <label for="exampleSelectPrimary43">Furnish</label>
-            <select class="form-control border-primary" id="exampleSelectPrimary43">
-              <option *ngFor="let i of searchBase?.listDecorat" value="i.id">{{i.title}}</option>
+            <select class="form-control border-primary" id="exampleSelectPrimary43" [(ngModel)]="param.decoratId" >
+              <option *ngFor="let i of searchBase?.listDecorat" [ngValue]="i.id">{{i.title}}</option>
             </select>
           </div>
         </div>
         <div class="col">
           <div class="form-group">
             <label for="exampleInputName1">By Code</label>
-            <input type="text" class="form-control" id="exampleInputName1" placeholder="">
+            <input type="text" class="form-control" id="exampleInputName1" placeholder="" [(ngModel)]="param.depositId">
           </div>
         </div>
         </div>
           <div class="col">
-          <button type="button" class="btn social-btn btn-warning btn-rounded"><i class="fa fa-search"></i></button>
+          <button type="button" class="btn social-btn btn-warning btn-rounded" (click)="SearchSubmit()"><i class="fa fa-search"></i></button>
         </div>
 
       </div>

@@ -3,6 +3,7 @@ import {DepositList} from './deposit-list';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Depositcount} from './depositcount';
 import {SearchBase} from '../Classes/searchbase';
+import {SearchParam} from '../Classes/search-param';
 
 
 @Component({
@@ -19,6 +20,7 @@ export class PropertyListComponent implements OnInit {
   depositList: DepositList[];
   depositCount = new Depositcount();
   searchBase: SearchBase;
+  param = new SearchParam();
   ServerUrl = 'http://172.16.25.113/api/';
 
   httpOptions = {
@@ -58,9 +60,23 @@ export class PropertyListComponent implements OnInit {
     );
   }
 
+  postSearchParam(searchparam: SearchParam) {
+    return this.http.post<SearchParam>(this.ServerUrl + 'deposit/search', searchparam, this.httpOptions).subscribe(
+      (data) => {this.param = data;
+        console.log(this.param);
+      },
+      (err) => console.log(err)
+    );
+  }
+
+
   onPageChange(event) {
     this.getlistdeposit(event);
     console.log(event);
+  }
+
+  SearchSubmit() {
+  return this.postSearchParam(this.param);
   }
 
   ngOnInit() {
