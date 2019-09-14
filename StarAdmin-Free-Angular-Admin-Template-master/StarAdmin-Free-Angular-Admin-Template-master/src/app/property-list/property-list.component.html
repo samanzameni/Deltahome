@@ -9,7 +9,7 @@
           <div class="form-group">
             <label for="exampleSelectPrimary73">Advisor</label>
             <select class="form-control border-primary" id="exampleSelectPrimary73" [(ngModel)]="param.adviserId" >
-              <option *ngFor="let i of searchBase?.listAdvisor"  [ngValue]="i.id">{{i.fullName}}</option>
+              <option *ngFor="let i of searchBase?.listAdvisor"  [ngValue]="i.Id">{{i.fullName}}</option>
             </select>
           </div>
         </div>
@@ -93,7 +93,7 @@
         <div class="col">
           <div class="form-group">
             <label for="exampleInputName1">By Code</label>
-            <input type="text" class="form-control" id="exampleInputName1" placeholder="" [(ngModel)]="param.depositId">
+            <input type="number" class="form-control" id="exampleInputName1" placeholder="" [(ngModel)]="param.depoistId">
           </div>
         </div>
         </div>

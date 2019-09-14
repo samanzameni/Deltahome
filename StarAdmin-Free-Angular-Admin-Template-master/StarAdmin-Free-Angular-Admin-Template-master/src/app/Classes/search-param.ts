@@ -1,5 +1,5 @@
 export class SearchParam {
-  public depositId: any;
+  public depoistId: number;
   public adviserId: any;
   public regionId: any;
   public propertyId: any;
