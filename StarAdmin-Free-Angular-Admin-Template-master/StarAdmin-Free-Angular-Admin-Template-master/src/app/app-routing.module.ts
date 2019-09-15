@@ -24,6 +24,7 @@ import {PropertyListComponent} from './property-list/property-list.component';
 import {ImageuploadComponent} from './imageupload/imageupload.component';
 import {BaseInfoComponent} from './base-info/base-info.component';
 import {LeafletComponent} from './leaflet/leaflet.component';
+import {PhotosLocationComponent} from './photos-location/photos-location.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/Index', pathMatch: 'full' },
@@ -50,6 +51,7 @@ const routes: Routes = [
   { path: 'ImageUpload', component: ImageuploadComponent},
   { path: 'BaseInfo', component: BaseInfoComponent},
   { path: 'leaflet', component: LeafletComponent},
+  { path: 'Photos&Location', component: PhotosLocationComponent},
 ];
 
 @NgModule({
