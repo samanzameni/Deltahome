@@ -2,8 +2,8 @@ export class Deposit {
 
     public adviser_id: any;
     public ownerName: any;
-    public ownerPhone: number;
-    public ownerMobile: number;
+    public ownerPhone: any;
+    public ownerMobile: any;
     public region_id: string;
     public address: any;
     public propertyType_id: string;

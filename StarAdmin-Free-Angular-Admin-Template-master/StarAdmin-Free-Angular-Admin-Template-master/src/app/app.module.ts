@@ -37,6 +37,7 @@ import { BaseInfoComponent } from './base-info/base-info.component';
 import {LeafletModule} from '@asymmetrik/ngx-leaflet';
 import { LeafletComponent } from './leaflet/leaflet.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import { PhotosLocationComponent } from './photos-location/photos-location.component';
 
 
 
@@ -70,7 +71,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     PropertyListComponent,
     ImageuploadComponent,
     BaseInfoComponent,
-    LeafletComponent
+    LeafletComponent,
+    PhotosLocationComponent
   ],
   imports: [
     BrowserModule,

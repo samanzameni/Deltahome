@@ -5,6 +5,8 @@ import {Depositcount} from './depositcount';
 import {SearchBase} from '../Classes/searchbase';
 import {SearchParam} from '../Classes/search-param';
 
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-property-list',
@@ -15,12 +17,13 @@ import {SearchParam} from '../Classes/search-param';
 
 export class PropertyListComponent implements OnInit {
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient , private router: Router) {}
 
   depositList: DepositList[];
   depositCount = new Depositcount();
   searchBase: SearchBase;
   param = new SearchParam();
+
   ServerUrl = 'http://172.16.25.113/api/';
 
   httpOptions = {
@@ -78,6 +81,11 @@ export class PropertyListComponent implements OnInit {
   SearchSubmit() {
   return this.postSearchParam(this.param);
   }
+
+  EditButton(id) {
+    this.router.navigate(['/AddProperty'], { queryParams: { depositId: id } });
+  }
+
 
   ngOnInit() {
     this.getCountDeposit();

@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Deposit} from './deposit';
 import {DepositService} from './deposit.service';
 import {Firstdata} from '../Classes/firstdata';
+import { ActivatedRoute} from '@angular/router';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 
 
@@ -14,7 +16,7 @@ import {Firstdata} from '../Classes/firstdata';
 export class ZameniformComponent implements OnInit {
 
 
-  constructor(public depositService: DepositService, private fb: FormBuilder) {
+  constructor(public depositService: DepositService, private fb: FormBuilder , private router: ActivatedRoute, private http: HttpClient ) {
     this.createForm();
 
   }
@@ -24,7 +26,14 @@ export class ZameniformComponent implements OnInit {
   submitted = false;
   listarray = new Firstdata();
   public i: any = 0;
+  ServerUrl = 'http://172.16.25.113/api/';
 
+  httpOptions = {
+    headers: new HttpHeaders({'Content-Type': 'application/json',
+        // 'Authorization': 'Bearer ' + this.token
+      }
+    )
+  };
   setfacility(facilityid, event) {
     if (event.target.checked) {
       this.model.depositFacilities.push(facilityid);
@@ -75,11 +84,25 @@ export class ZameniformComponent implements OnInit {
     });
   }
 
+  EditForm(id) {
+    return this.http.get<Deposit>(this.ServerUrl + 'deposit/edit?depositId=' + id, this.httpOptions).subscribe(
+      (data) => {
+        this.model = data;
+        console.log(this.model);
+      },
+      (err) => console.log(err)
+    );
 
+  }
 
   ngOnInit() {
+    const depositId: string = this.router.snapshot.queryParamMap.get('depositId');
+    if (depositId !== null) {this.EditForm(depositId); }
     this.advisorarray();
   }
+
+
+
 
 
 

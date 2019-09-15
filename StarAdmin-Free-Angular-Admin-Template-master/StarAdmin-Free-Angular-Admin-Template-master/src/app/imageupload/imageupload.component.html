@@ -4,16 +4,29 @@
     <div class="card">
       <div class="card-body">
 
-      <h3>Choose Image</h3>
+      <h3>Add Photo</h3>
+        <ul>
+          <li>You can attach 8 photo for each listing.</li>
+          <li>Volume of each photo must not be more than 100 kb.</li>
+          <li>Formats of photo must be png or jpeg.</li>
+        </ul>
       <form (ngSubmit)="onSubmit()">
         <div class="form-group">
-          <input type="file" class="custom-file-input" name="image" accept="image/*" (change)="fileProgress($event)"/>
+          <input type="file" class="custom-file-input" name="image" accept="image/jpeg, image/png" (change)="fileProgress($event)"/>
         </div>
         <div *ngIf="fileUploadProgress" style="color: #007bff;margin-bottom: 10px;">
           Upload progress: {{ fileUploadProgress }}
         </div>
         <div class="mb-3" *ngIf="previewUrl">
           <img [src]="previewUrl" height="auto" width="100%"/>
+        </div>
+        <div class="row" *ngFor="let i of imageArray">
+        <div >
+          <i class="fa fa-close" (click)="removeImage(i)"></i>
+          <img class="col-form-label" [src]="i" height="150" width="150"/>
+        </div>
+
+
         </div>
         <div class="form-group">
           <button class="btn btn-primary">Submit</button>

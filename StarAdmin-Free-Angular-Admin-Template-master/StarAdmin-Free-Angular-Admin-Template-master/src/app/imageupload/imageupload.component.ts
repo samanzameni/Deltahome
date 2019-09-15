@@ -12,6 +12,8 @@ export class ImageuploadComponent implements OnInit {
   fileUploadProgress: string = null;
   previewUrl: any = null;
   fileData: File = null;
+  imageArray: string [] = [];
+  theAddress = '';
   constructor(private http: HttpClient) { }
 
   ngOnInit() {
@@ -34,11 +36,21 @@ export class ImageuploadComponent implements OnInit {
 
     const reader = new FileReader();
     reader.readAsDataURL(this.fileData);
-    reader.onload = (_event) => {
+    reader.onload = (event) => {
       this.previewUrl = reader.result;
+      this.theAddress = reader.result.toString();
     };
   }
+
+  removeImage(index) {
+    this.imageArray.splice(this.imageArray.indexOf((index)), 1);
+  }
+
+
   onSubmit() {
+    if (this.theAddress !== '') {
+    if (this.imageArray.length <= 7) {
+      this.imageArray.push(this.theAddress);
     const formData = new FormData();
     this.fileUploadProgress = '0%';
     formData.append('image', this.fileData , this.fileData.name);
@@ -57,7 +69,13 @@ export class ImageuploadComponent implements OnInit {
         }
 
       });
+  } else {
+    alert('error');
+    }
+  } else {
+      alert('plz select image');
+    }
   }
-
 }
+
 

@@ -14,7 +14,7 @@
                 <label class="col-sm-4 col-form-label">Advisor:</label>
                 <div  class="col-sm-8">
                   <select   class="form-control" [(ngModel)]="model.adviser_id" [ngModelOptions]="{standalone: true}">
-                    <option *ngFor="let i of listarray.listAdvisor" [ngValue]="i.id">
+                    <option *ngFor="let i of listarray.listAdvisor" [ngValue]="i.Id">
                       {{i.fullName}}
                     </option>
                   </select>
@@ -45,7 +45,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> Phone:</label>
                 <div class="col-sm-8">
-                  <input type="number" class="form-control" formControlName="ownerPhone" [(ngModel)]="model.ownerPhone" required/>
+                  <input type="text" class="form-control" formControlName="ownerPhone" [(ngModel)]="model.ownerPhone" required/>
                 </div>
               </div>
               <div *ngIf="angForm.controls['ownerPhone'].invalid && (angForm.controls['ownerPhone'].dirty || angForm.controls['ownerPhone'].touched)" class="alert alert-danger">
@@ -393,7 +393,7 @@
               <div class="form-group ">
                 <div class="form-check ">
                   <label  *ngFor="let i of listarray.listFacility;" class="col-md-3" >
-                  <input type="checkbox" [id]="i.id" [value]="i.id" (click)="setfacility(i.id , $event)">
+                  <input type="checkbox" [id]="i.id" [value]="i.id" [(ngModel)]="model.depositFacilities[i.id]" (click)="setfacility(i.id , $event)" [ngModelOptions]="{standalone: true}">
                   {{i.title}}
                   </label>
                 </div>
