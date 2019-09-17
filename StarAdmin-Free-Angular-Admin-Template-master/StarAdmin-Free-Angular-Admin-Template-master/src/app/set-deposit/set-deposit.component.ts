@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Deposit} from '../zameniform/deposit';
 
 @Component({
   selector: 'app-set-deposit',

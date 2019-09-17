@@ -5,6 +5,9 @@ import {DepositService} from './deposit.service';
 import {Firstdata} from '../Classes/firstdata';
 import { ActivatedRoute} from '@angular/router';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+
+
+
 @Component({
   selector: 'app-zameniform',
   templateUrl: './zameniform.component.html',
@@ -15,9 +18,9 @@ export class ZameniformComponent implements OnInit {
     this.createForm();
   }
 
-  angForm: FormGroup;
-  model = new Deposit();
-  submitted = false;
+ angForm: FormGroup;
+ model = new Deposit();
+    submitted = false;
   listarray = new Firstdata();
   public i: any = 0;
   ServerUrl = 'http://172.16.25.113/api/';
