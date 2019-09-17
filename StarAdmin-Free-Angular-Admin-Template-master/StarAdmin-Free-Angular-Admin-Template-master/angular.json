@@ -24,13 +24,27 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              {
+                "glob": "**/*",
+                "input": "node_modules/leaflet/dist/images",
+                "output": "leaflet/"
+              }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/leaflet/dist/leaflet.css"
 
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.slim.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/leaflet/dist/leaflet.js",
+              "node_modules/popper.js/dist/umd/popper.min.js"
+
+            ]
           },
           "configurations": {
             "production": {
@@ -92,9 +106,12 @@
 
             ],
             "scripts": [
+              "node_modules/jquery/dist/jquery.slim.min.js",
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
-              "node_modules/selenium-webdriver/lib/test/data/js/jquery-1.4.4.min.js",
-              "node_modules/leaflet/dist/leaflet.js"
+              "node_modules/leaflet/dist/leaflet.js",
+              "node_modules/popper.js/dist/umd/popper.min.js"
+
+
 
             ],
             "assets": [
@@ -102,7 +119,7 @@
               "src/assets",
               {
                 "glob": "**/*",
-                "input": "./node_modules/leaflet/dist/images",
+                "input": "node_modules/leaflet/dist/images",
                 "output": "leaflet/"
               }
             ]

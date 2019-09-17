@@ -34,10 +34,11 @@ import { IndexComponent } from './index/index.component';
 import { PropertyListComponent } from './property-list/property-list.component';
 import { ImageuploadComponent } from './imageupload/imageupload.component';
 import { BaseInfoComponent } from './base-info/base-info.component';
-import {LeafletModule} from '@asymmetrik/ngx-leaflet';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletComponent } from './leaflet/leaflet.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { PhotosLocationComponent } from './photos-location/photos-location.component';
+import { SetDepositComponent } from './set-deposit/set-deposit.component';
 
 
 
@@ -72,7 +73,8 @@ import { PhotosLocationComponent } from './photos-location/photos-location.compo
     ImageuploadComponent,
     BaseInfoComponent,
     LeafletComponent,
-    PhotosLocationComponent
+    PhotosLocationComponent,
+    SetDepositComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,7 @@ import { PhotosLocationComponent } from './photos-location/photos-location.compo
     AppRoutingModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-   LeafletModule.forRoot(),
+    LeafletModule.forRoot(),
     NgxPaginationModule
   ],
   providers: [],

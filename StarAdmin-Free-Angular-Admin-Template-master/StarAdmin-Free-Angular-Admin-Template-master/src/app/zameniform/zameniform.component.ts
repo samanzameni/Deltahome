@@ -5,20 +5,14 @@ import {DepositService} from './deposit.service';
 import {Firstdata} from '../Classes/firstdata';
 import { ActivatedRoute} from '@angular/router';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-
-
-
 @Component({
   selector: 'app-zameniform',
   templateUrl: './zameniform.component.html',
   styleUrls: ['./zameniform.component.scss']
 })
 export class ZameniformComponent implements OnInit {
-
-
   constructor(public depositService: DepositService, private fb: FormBuilder , private router: ActivatedRoute, private http: HttpClient ) {
     this.createForm();
-
   }
 
   angForm: FormGroup;
@@ -27,7 +21,6 @@ export class ZameniformComponent implements OnInit {
   listarray = new Firstdata();
   public i: any = 0;
   ServerUrl = 'http://172.16.25.113/api/';
-
   httpOptions = {
     headers: new HttpHeaders({'Content-Type': 'application/json',
         // 'Authorization': 'Bearer ' + this.token
@@ -41,7 +34,6 @@ export class ZameniformComponent implements OnInit {
       this.i = this.model.depositFacilities.indexOf((facilityid));
       this.model.depositFacilities.splice(this.i, 1); }
   }
-
   advisorarray() {
     return this.depositService.contactForm2().subscribe(
       (data) => { this.listarray = data;
@@ -50,8 +42,6 @@ export class ZameniformComponent implements OnInit {
     (err) => console.log(err)
     );
   }
-
-
   onSubmit() {
     this.submitted = true;
     return this.depositService.contactForm(this.model).subscribe(

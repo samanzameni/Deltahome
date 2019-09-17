@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-8 offset-md-2">
+    <div class="col-md">
     <div class="card">
       <div class="card-body">
 
@@ -23,7 +23,7 @@
         <div class="row">
         <div class="col-md-4" *ngFor="let i of imageArray">
         <div class="row">
-          <i class="fa fa-close col-md-2" (click)="removeImage(i)"></i>
+          <i class="fa fa-trash col-md-2" (click)="removeImage(i)" style="color: red"></i>
           <img class="col-md-10" [src]="i" height="150" width="150" alt="img"/>
         </div>
         </div>

@@ -30,4 +30,6 @@ export class Deposit {
     public statusId: string;
     public seoDescription: string;
     public seoTitle: string;
+    public latitude: number;
+    public longitude: number;
 }
