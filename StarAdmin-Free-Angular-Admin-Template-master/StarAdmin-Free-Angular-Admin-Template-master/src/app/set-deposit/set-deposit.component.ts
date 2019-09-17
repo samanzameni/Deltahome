@@ -7,6 +7,8 @@ import {Deposit} from '../zameniform/deposit';
   styleUrls: ['./set-deposit.component.scss']
 })
 export class SetDepositComponent implements OnInit {
+setModel = new Deposit();
+
 
   constructor() { }
 

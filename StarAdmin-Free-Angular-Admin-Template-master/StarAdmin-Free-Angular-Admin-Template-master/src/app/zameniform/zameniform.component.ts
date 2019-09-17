@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Deposit} from './deposit';
 import {DepositService} from './deposit.service';
@@ -19,7 +19,7 @@ export class ZameniformComponent implements OnInit {
   }
 
  angForm: FormGroup;
- model = new Deposit();
+@Input() model = new Deposit();
     submitted = false;
   listarray = new Firstdata();
   public i: any = 0;
