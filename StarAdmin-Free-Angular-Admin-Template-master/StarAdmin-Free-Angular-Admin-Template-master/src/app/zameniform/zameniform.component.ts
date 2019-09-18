@@ -18,9 +18,9 @@ export class ZameniformComponent implements OnInit {
     this.createForm();
   }
 
- angForm: FormGroup;
-@Input() model = new Deposit();
-    submitted = false;
+  angForm: FormGroup;
+  model = new Deposit();
+  submitted = false;
   listarray = new Firstdata();
   public i: any = 0;
   ServerUrl = 'http://172.16.25.113/api/';

@@ -2,21 +2,15 @@ import { Component, OnInit} from '@angular/core';
 import * as L from 'leaflet';
 import {circle, icon, marker, polygon} from 'leaflet';
 
-
-
-
 @Component({
   selector: 'app-leaflet',
   templateUrl: './leaflet.component.html',
   styleUrls: ['./leaflet.component.scss']
 })
 export class LeafletComponent implements OnInit {
-
-
+ public lati = 0;
+ public longi = 0;
   constructor() {}
-
-
-
    layOsm: L.TileLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: 'Map-Name',
@@ -31,8 +25,6 @@ export class LeafletComponent implements OnInit {
     'openstreetmap': this.layOsm
   };
   layersControlOptions: L.ControlOptions = { position: 'bottomright' };
-  private lat1: number;
-  private lng1: number;
 
   layers = [
     circle([ 46.95, -122 ], { radius: 5000 }),
@@ -45,30 +37,19 @@ export class LeafletComponent implements OnInit {
         shadowUrl: 'marker-shadow.png',
       }),
       draggable: true,
-      riseOnHover: true,
     }).on('dragend', (e) => {
-     this.lat1 = e.target.getLatLng().lat;
-    this.lng1 = e.target.getLatLng().lng;
+      this.lati = e.target.getLatLng().lat;
+      this.longi = e.target.getLatLng().lng;
+       console.log(this.lati + '   ' + this.longi);
 
-      console.log(this.lat1 + '  ' + this.lng1);
-    })
+    } )
   ];
-ngOnInit() {}
 
+ngOnInit() {}
   onMapReady(map: L.Map) {
     console.log(map);
     setTimeout(() => {
       map.invalidateSize();
     }, 0);
   }
-
-
-
-
-
 }
-
-
-
-
-
