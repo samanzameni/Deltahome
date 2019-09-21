@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnInit, ViewChild, ChangeDetectorRef} from '@angular/core';
  import {ZameniformComponent} from '../zameniform/zameniform.component';
  import {Deposit} from '../zameniform/deposit';
-import {LeafletComponent} from '../leaflet/leaflet.component';
+import {DepositService} from '../zameniform/deposit.service';
 
 @Component({
 
@@ -10,20 +10,41 @@ import {LeafletComponent} from '../leaflet/leaflet.component';
   styleUrls: ['./set-deposit.component.scss']
 })
 export class SetDepositComponent implements OnInit, AfterViewInit  {
+  AddVisibleComp = true;
+  MapVisibleComp = false;
+  ReviewVisibleComp = false;
+  @ViewChild(ZameniformComponent, {static: false}) AddProperty;
 
-   @ViewChild(ZameniformComponent, {static: false}) AddProperty;
-  @ViewChild(LeafletComponent, {static: false}) AddLatLng;
-  constructor(private cdr: ChangeDetectorRef) { }
+  constructor(private cdr: ChangeDetectorRef, public depositService: DepositService) { }
    Setmodel = new Deposit();
 
   ngAfterViewInit() {
     this.Setmodel = this.AddProperty.model;
-    this.Setmodel.latitude = this.AddLatLng.saman.lati;
-    this.Setmodel.longitude = this.AddLatLng.saman.longi;
     this.cdr.detectChanges();
   }
-  ngOnInit() {
+  receiveModel($event) {
+    this.Setmodel.latitude = $event.lati;
+    this.Setmodel.longitude = $event.longi;
+     this.ReviewVisible();
+  }
+  MapVisible() {
+    this.AddVisibleComp = false;
+    this.MapVisibleComp = true;
+  }
+  ReviewVisible() {
+    this.AddVisibleComp = false;
+    this.MapVisibleComp = true;
+    this.ReviewVisibleComp = true;
+  }
 
+  OnSubmitAll() {
+    return this.depositService.contactForm(this.Setmodel).subscribe(
+      (data) => {this.Setmodel = data; },
+      err => { console.log(err);
+      }
+    );
+  }
+  ngOnInit() {
 }
 
 }

@@ -39,6 +39,7 @@ import { LeafletComponent } from './leaflet/leaflet.component';
 import {NgxPaginationModule} from 'ngx-pagination';
 import { PhotosLocationComponent } from './photos-location/photos-location.component';
 import { SetDepositComponent } from './set-deposit/set-deposit.component';
+import { ReviewComponent } from './review/review.component';
 
 
 
@@ -75,7 +76,8 @@ import { SetDepositComponent } from './set-deposit/set-deposit.component';
     BaseInfoComponent,
     LeafletComponent,
     PhotosLocationComponent,
-    SetDepositComponent
+    SetDepositComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,

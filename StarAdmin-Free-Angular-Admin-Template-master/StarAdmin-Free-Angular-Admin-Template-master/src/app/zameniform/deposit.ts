@@ -26,10 +26,12 @@ export class Deposit {
     public garage: boolean;
     public storage: boolean;
     public firePlug: boolean;
-    public depositFacilities: any[] = [0];
+    public depositFacilities: any[] = [];
     public statusId: string;
     public seoDescription: string;
     public seoTitle: string;
     public latitude: any;
     public longitude: any;
+    public depositFac: number[] = [];
+    public baseImagePath: string;
 }

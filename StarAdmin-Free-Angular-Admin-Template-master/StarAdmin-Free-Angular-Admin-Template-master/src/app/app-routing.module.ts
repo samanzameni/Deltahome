@@ -26,6 +26,7 @@ import {BaseInfoComponent} from './base-info/base-info.component';
 import {LeafletComponent} from './leaflet/leaflet.component';
 import {PhotosLocationComponent} from './photos-location/photos-location.component';
 import {SetDepositComponent} from './set-deposit/set-deposit.component';
+import {ReviewComponent} from './review/review.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/Index', pathMatch: 'full' },
@@ -54,6 +55,7 @@ const routes: Routes = [
   { path: 'leaflet', component: LeafletComponent},
   { path: 'Photos&Location', component: PhotosLocationComponent},
   { path: 'SetDeposit', component: SetDepositComponent},
+  { path: 'Review', component: ReviewComponent},
 ];
 
 @NgModule({

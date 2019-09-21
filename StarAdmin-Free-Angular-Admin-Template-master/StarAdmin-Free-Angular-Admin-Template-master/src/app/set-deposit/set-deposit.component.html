@@ -1,7 +1,33 @@
-Message: {{ Setmodel.latitude }}
-
-<app-leaflet></app-leaflet>
-<app-zameniform></app-zameniform>
-
-
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <div class="row" *ngIf="AddVisibleComp">
+        <div class="col-md">
+          <app-zameniform (Event)="MapVisible()"></app-zameniform>
+        </div>
+      </div>
+      <div *ngIf="MapVisibleComp">
+        <div class="row">
+          <div class="col-md">
+            <app-imageupload></app-imageupload>
+          </div>
+        </div>
+        <div class="row">
+        <div class="col-md">
+          Message: {{ Setmodel.latitude }} and {{Setmodel.longitude}}
+          <app-leaflet (messageEvent)="receiveModel($event)"></app-leaflet>
+        </div>
+      </div>
+      </div>
+      <div class="row" *ngIf="ReviewVisibleComp">
+        <div class="col-md">
+          <app-review ></app-review>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-primary btn-fw" (click)="OnSubmitAll()">Send Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 

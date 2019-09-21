@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md">
-    <div  leaflet style="height: 300px"
+    <div  leaflet style="height: 300px; z-index: 0"
           [leafletOptions]="leafletOptions"
           [leafletBaseLayers]="baseLayers"
           [leafletLayersControlOptions]="layersControlOptions"
@@ -9,6 +9,9 @@
     </div>
   </div>
 
+</div>
+<div>
+  <button type="submit" class="btn btn-primary btn-fw" (click)="sendMessage()">Send Message</button>
 </div>
 
 

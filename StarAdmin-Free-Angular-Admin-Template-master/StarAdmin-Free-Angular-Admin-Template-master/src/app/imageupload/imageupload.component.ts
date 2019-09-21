@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient, HttpEventType} from '@angular/common/http';
+import {HttpClient, HttpEventType, HttpHeaders} from '@angular/common/http';
 
 
 @Component({
@@ -13,9 +13,9 @@ export class ImageuploadComponent implements OnInit {
   previewUrl: any = null;
   fileData: File = null;
   imageArray: string [] = [];
+  ResponseImageArray: string [] = [];
   theAddress = '';
   constructor(private http: HttpClient) { }
-
   ngOnInit() {
 
 
@@ -31,6 +31,7 @@ export class ImageuploadComponent implements OnInit {
     // Show preview
     const mimeType = this.fileData.type;
     if (mimeType.match(/image\/*/) == null) {
+      alert('ggg');
       return;
     }
 
@@ -46,7 +47,7 @@ export class ImageuploadComponent implements OnInit {
     this.imageArray.splice(this.imageArray.indexOf((index)), 1);
   }
 
-
+  
   onSubmit() {
     if (this.theAddress !== '') {
     if (this.imageArray.length <= 7) {
@@ -54,11 +55,14 @@ export class ImageuploadComponent implements OnInit {
     const formData = new FormData();
     this.fileUploadProgress = '0%';
     formData.append('image', this.fileData , this.fileData.name);
-    this.http.post('url/to/your/api', formData, {
+    this.http.post('http://172.16.25.113/api/File/uploadimage', formData, {
       reportProgress: true,
-      observe: 'events'
+      observe: 'events',
+      headers: new HttpHeaders(
+        {'accept': 'application/json'})
     })
       .subscribe(events => {
+
         if (events.type === HttpEventType.UploadProgress) {
           this.fileUploadProgress = Math.round(events.loaded / events.total * 100) + '%';
           console.log(this.fileUploadProgress);

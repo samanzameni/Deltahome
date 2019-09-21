@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import * as L from 'leaflet';
 import {circle, icon, marker, polygon} from 'leaflet';
 
@@ -8,8 +8,10 @@ import {circle, icon, marker, polygon} from 'leaflet';
   styleUrls: ['./leaflet.component.scss']
 })
 export class LeafletComponent implements OnInit {
- public lati = 0;
- public longi = 0;
+
+  lati: any = 35.6892;
+  longi: any = 51.3890;
+
   constructor() {}
    layOsm: L.TileLayer = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
@@ -18,7 +20,7 @@ export class LeafletComponent implements OnInit {
   });
   // Values to bind to Leaflet Directive
   leafletOptions: L.MapOptions = {
-    zoom: 6,
+    zoom: 11,
     center: L.latLng(35.6892, 51.3890)
   };
   baseLayers: {[layerName: string]: L.Layer} = {
@@ -44,7 +46,10 @@ export class LeafletComponent implements OnInit {
 
     } )
   ];
-
+  @Output() messageEvent = new EventEmitter<any>();
+  sendMessage() {
+    this.messageEvent.emit({lati: this.lati, longi: this.longi});
+  }
 ngOnInit() {}
   onMapReady(map: L.Map) {
     console.log(map);

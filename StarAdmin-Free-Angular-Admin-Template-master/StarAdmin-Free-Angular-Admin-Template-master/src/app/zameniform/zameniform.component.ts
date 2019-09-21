@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from '@angular/core';
+import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Deposit} from './deposit';
 import {DepositService} from './deposit.service';
@@ -30,12 +30,20 @@ export class ZameniformComponent implements OnInit {
       }
     )
   };
+  public  visibleForm = true;
+  @Output() Event = new EventEmitter<boolean>();
+  VisibleEvent() {
+    this.Event.emit(this.visibleForm);
+  this.onSubmit();
+  }
   setfacility(facilityid, event) {
-    if (event.target.checked) {
-      this.model.depositFacilities.push(facilityid);
+    if (event.checked) {
+      this.model.depositFac.push(facilityid);
     } else {
-      this.i = this.model.depositFacilities.indexOf((facilityid));
-      this.model.depositFacilities.splice(this.i, 1); }
+      this.i = this.model.depositFac.indexOf((facilityid));
+      this.model.depositFac.splice(this.i, 1);
+    }
+    console.log(this.model.depositFac);
   }
   advisorarray() {
     return this.depositService.contactForm2().subscribe(
@@ -47,10 +55,11 @@ export class ZameniformComponent implements OnInit {
   }
   onSubmit() {
     this.submitted = true;
-    return this.depositService.contactForm(this.model).subscribe(
-      (data) => {this.model = data; },
-      err => console.log(err)
-      );
+    // return this.depositService.contactForm(this.model).subscribe(
+    //   (data) => {this.model = data; },
+    //   err => { console.log(err);
+    //   }
+    //   );
   }
 
 
@@ -88,15 +97,11 @@ export class ZameniformComponent implements OnInit {
 
   }
 
+
   ngOnInit() {
     const depositId: string = this.router.snapshot.queryParamMap.get('depositId');
     if (depositId !== null) {this.EditForm(depositId); }
     this.advisorarray();
   }
-
-
-
-
-
 
 }
