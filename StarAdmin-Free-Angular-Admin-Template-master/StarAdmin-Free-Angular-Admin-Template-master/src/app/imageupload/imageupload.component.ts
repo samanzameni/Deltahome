@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {HttpClient, HttpEventType, HttpHeaders} from '@angular/common/http';
-
 
 @Component({
   selector: 'app-imageupload',
@@ -13,11 +12,16 @@ export class ImageuploadComponent implements OnInit {
   previewUrl: any = null;
   fileData: File = null;
   imageArray: string [] = [];
-  ResponseImageArray: string [] = [];
+  PathImageArray: any [] = [];
   theAddress = '';
+
+  @Output() imageEvent = new EventEmitter<any>();
+  ImageMessage() {
+    this.imageEvent.emit(this.PathImageArray);
+    this.onSubmit();
+  }
   constructor(private http: HttpClient) { }
   ngOnInit() {
-
 
   }
 
@@ -26,18 +30,16 @@ export class ImageuploadComponent implements OnInit {
     this.preview();
   }
 
-
   preview() {
     // Show preview
     const mimeType = this.fileData.type;
     if (mimeType.match(/image\/*/) == null) {
-      alert('ggg');
       return;
     }
 
     const reader = new FileReader();
     reader.readAsDataURL(this.fileData);
-    reader.onload = (event) => {
+    reader.onload = () => {
       this.previewUrl = reader.result;
       this.theAddress = reader.result.toString();
     };
@@ -47,7 +49,6 @@ export class ImageuploadComponent implements OnInit {
     this.imageArray.splice(this.imageArray.indexOf((index)), 1);
   }
 
-  
   onSubmit() {
     if (this.theAddress !== '') {
     if (this.imageArray.length <= 7) {
@@ -70,9 +71,10 @@ export class ImageuploadComponent implements OnInit {
           this.fileUploadProgress = '';
           console.log(events.body);
           alert('SUCCESS !!');
+          this.PathImageArray.push(events.body); console.log(this.PathImageArray);
         }
-
-      });
+      }
+      );
   } else {
     alert('error');
     }
@@ -80,6 +82,7 @@ export class ImageuploadComponent implements OnInit {
       alert('plz select image');
     }
   }
+
+
+
 }
-
-

@@ -37,7 +37,6 @@ import { BaseInfoComponent } from './base-info/base-info.component';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { LeafletComponent } from './leaflet/leaflet.component';
 import {NgxPaginationModule} from 'ngx-pagination';
-import { PhotosLocationComponent } from './photos-location/photos-location.component';
 import { SetDepositComponent } from './set-deposit/set-deposit.component';
 import { ReviewComponent } from './review/review.component';
 
@@ -75,7 +74,6 @@ import { ReviewComponent } from './review/review.component';
     ImageuploadComponent,
     BaseInfoComponent,
     LeafletComponent,
-    PhotosLocationComponent,
     SetDepositComponent,
     ReviewComponent
   ],

@@ -9,12 +9,14 @@
       <div *ngIf="MapVisibleComp">
         <div class="row">
           <div class="col-md">
-            <app-imageupload></app-imageupload>
+            <app-imageupload (imageEvent)="receivePathImage($event)"></app-imageupload>
           </div>
         </div>
+        <br>
+        <hr>
+        <br>
         <div class="row">
         <div class="col-md">
-          Message: {{ Setmodel.latitude }} and {{Setmodel.longitude}}
           <app-leaflet (messageEvent)="receiveModel($event)"></app-leaflet>
         </div>
       </div>

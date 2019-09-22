@@ -34,4 +34,5 @@ export class Deposit {
     public longitude: any;
     public depositFac: number[] = [];
     public baseImagePath: string;
+    public ResponseImageArray: string[] = [];
 }

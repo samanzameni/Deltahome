@@ -10,7 +10,7 @@
           <li>Volume of each photo must not be more than 100 kb.</li>
           <li>Formats of photo must be png or jpeg.</li>
         </ul>
-      <form (ngSubmit)="onSubmit()">
+      <form (ngSubmit)="ImageMessage()">
         <div class="form-group">
           <input type="file" class="custom-file-input" name="image" accept="image/jpeg, image/png" (change)="fileProgress($event)"/>
         </div>

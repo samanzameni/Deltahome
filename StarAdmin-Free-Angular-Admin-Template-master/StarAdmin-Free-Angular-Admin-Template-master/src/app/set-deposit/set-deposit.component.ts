@@ -25,7 +25,7 @@ export class SetDepositComponent implements OnInit, AfterViewInit  {
   receiveModel($event) {
     this.Setmodel.latitude = $event.lati;
     this.Setmodel.longitude = $event.longi;
-     this.ReviewVisible();
+    this.ReviewVisible();
   }
   MapVisible() {
     this.AddVisibleComp = false;
@@ -33,8 +33,11 @@ export class SetDepositComponent implements OnInit, AfterViewInit  {
   }
   ReviewVisible() {
     this.AddVisibleComp = false;
-    this.MapVisibleComp = true;
+    this.MapVisibleComp = false;
     this.ReviewVisibleComp = true;
+  }
+  receivePathImage($event) {
+    this.Setmodel.ResponseImageArray = $event.PathImageArray;
   }
 
   OnSubmitAll() {
@@ -46,6 +49,4 @@ export class SetDepositComponent implements OnInit, AfterViewInit  {
   }
   ngOnInit() {
 }
-
 }
-
