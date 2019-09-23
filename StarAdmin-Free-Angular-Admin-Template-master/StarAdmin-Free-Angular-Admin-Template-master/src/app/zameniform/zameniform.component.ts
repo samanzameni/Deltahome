@@ -36,12 +36,15 @@ export class ZameniformComponent implements OnInit {
     this.Event.emit(this.visibleForm);
   this.onSubmit();
   }
-  setfacility(facilityid, event) {
+  setfacility(facilityid, event, title) {
     if (event.checked) {
       this.model.depositFac.push(facilityid);
+      this.model.depositFac_title.push(title);
     } else {
       this.i = this.model.depositFac.indexOf((facilityid));
       this.model.depositFac.splice(this.i, 1);
+      this.i = this.model.depositFac_title.indexOf((title));
+      this.model.depositFac_title.splice(this.i, 1);
     }
     console.log(this.model.depositFac);
   }
@@ -96,12 +99,26 @@ export class ZameniformComponent implements OnInit {
     );
 
   }
-
+// to bind the second value and full title.
+  GetTextDropDwonAdvisor(event) {
+  this.model.adviser_title = event.target.options[event.target.options.selectedIndex].text;
+  }
+  GetTextDropDwonRegion(event) {
+    this.model.region_title = event.target.options[event.target.options.selectedIndex].text;
+  }
+  GetTextDropDwonPropertyType(event) {
+    this.model.propertyType_title = event.target.options[event.target.options.selectedIndex].text;
+  }
+  GetTextDropDwonKitchenService(event) {
+    this.model.kitchenService_title = event.target.options[event.target.options.selectedIndex].text;
+  }
+  GetTextDropDwonFloorCover(event) {
+    this.model.floorCover_title = event.target.options[event.target.options.selectedIndex].text;
+  }
 
   ngOnInit() {
     const depositId: string = this.router.snapshot.queryParamMap.get('depositId');
     if (depositId !== null) {this.EditForm(depositId); }
     this.advisorarray();
   }
-
 }

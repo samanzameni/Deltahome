@@ -13,7 +13,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Advisor:</label>
                 <div  class="col-sm-8">
-                  <select   class="form-control" [(ngModel)]="model.adviser_id" [ngModelOptions]="{standalone: true}">
+                  <select class="form-control" [(ngModel)]="model.adviser_id" [ngModelOptions]="{standalone: true}" (change)="GetTextDropDwonAdvisor($event)">
                     <option *ngFor="let i of listarray.listAdvisor" [ngValue]="i.Id">
                       {{i.fullName}}
                     </option>
@@ -77,7 +77,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Region:</label>
                 <div class="col-sm-8">
-                  <select class="form-control" formControlName="region_id" [(ngModel)]="model.region_id" required>
+                  <select class="form-control" formControlName="region_id" [(ngModel)]="model.region_id" (change)="GetTextDropDwonRegion($event)" required>
                     <option *ngFor="let i of listarray.listRegion" [ngValue]="i.id">{{i.title}}</option>
 
                   </select>
@@ -113,7 +113,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Property:</label>
                 <div class="col-sm-8">
-                  <select class="form-control" formControlName="propertyType_id" [(ngModel)]="model.propertyType_id" required>
+                  <select class="form-control" formControlName="propertyType_id" [(ngModel)]="model.propertyType_id" (change)="GetTextDropDwonPropertyType($event)" required >
                     <option *ngFor="let i of listarray.listPropertys" [ngValue]="i.id">{{i.title}}</option>
                   </select>
                 </div>
@@ -302,7 +302,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Kitchen:</label>
                 <div class="col-sm-8">
-                  <select class="form-control" formControlName="kitchenService_id" [(ngModel)]="model.kitchenService_id" required>
+                  <select class="form-control" formControlName="kitchenService_id" [(ngModel)]="model.kitchenService_id" (change)="GetTextDropDwonKitchenService($event)" required>
                     <option *ngFor="let i of listarray.listKitchenService" [ngValue]="i.id">{{i.title}}</option>
 
                   </select>
@@ -329,7 +329,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Floor cover:</label>
                 <div class="col-sm-8">
-                  <select class="form-control" formControlName="floorCover_id"  [(ngModel)]="model.floorCover_id" required>
+                  <select class="form-control" formControlName="floorCover_id"  [(ngModel)]="model.floorCover_id" (change)="GetTextDropDwonFloorCover($event)" required>
                     <option *ngFor="let i of listarray.listFloorCover" [ngValue]="i.id">{{i.title}}</option>
 
                   </select>
@@ -393,7 +393,7 @@
               <div class="form-group ">
                 <div class="form-check ">
                   <label  *ngFor="let i of listarray.listFacility;" class="col-md-3" >
-                  <input type="checkbox" [value]="i.id" [id]="i.id" (change)="setfacility(i.id , $event.target)" >
+                  <input type="checkbox" [value]="i.id" [id]="i.id" (change)="setfacility(i.id , $event.target, i.title)" >
                   {{i.title}}
                   </label>
                 </div>
@@ -405,19 +405,6 @@
           <br>
           <hr>
           <br>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group row">
-                <label class="col-sm-4 col-form-label">Status:</label>
-                <div class="col-sm-8">
-                  <select class="form-control" [(ngModel)]="model.statusId" [ngModelOptions]="{standalone: true}">
-                    <option>Home</option>
-                    <!--<option></option>-->
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
           <p class="card-description">
             SEO:
           </p>

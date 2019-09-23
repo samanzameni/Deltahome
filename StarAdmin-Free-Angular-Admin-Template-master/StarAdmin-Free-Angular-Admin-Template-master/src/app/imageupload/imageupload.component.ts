@@ -15,7 +15,8 @@ export class ImageuploadComponent implements OnInit {
   PathImageArray: any [] = [];
   theAddress = '';
 
-  @Output() imageEvent = new EventEmitter<any>();
+  // EventEmitter for array.
+  @Output() imageEvent = new EventEmitter<any[]>();
   ImageMessage() {
     this.imageEvent.emit(this.PathImageArray);
     this.onSubmit();
@@ -72,6 +73,7 @@ export class ImageuploadComponent implements OnInit {
           console.log(events.body);
           alert('SUCCESS !!');
           this.PathImageArray.push(events.body); console.log(this.PathImageArray);
+
         }
       }
       );

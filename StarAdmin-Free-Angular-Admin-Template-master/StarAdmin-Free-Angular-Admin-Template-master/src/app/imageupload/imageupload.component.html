@@ -7,7 +7,7 @@
       <h3>Add Photo</h3>
         <ul>
           <li>You can attach 8 photo for each listing.</li>
-          <li>Volume of each photo must not be more than 100 kb.</li>
+          <li>Volume of each photo must not be more than 5 mb.</li>
           <li>Formats of photo must be png or jpeg.</li>
         </ul>
       <form (ngSubmit)="ImageMessage()">
@@ -22,7 +22,7 @@
         </div>
         <div class="row">
         <div class="col-md-4" *ngFor="let i of imageArray">
-        <div class="row">
+        <div class="row" style="margin-bottom: 15px">
           <i class="fa fa-trash col-md-2" (click)="removeImage(i)" style="color: red"></i>
           <img class="col-md-10" [src]="i" height="150" width="150" alt="img"/>
         </div>

@@ -37,9 +37,13 @@ export class SetDepositComponent implements OnInit, AfterViewInit  {
     this.ReviewVisibleComp = true;
   }
   receivePathImage($event) {
-    this.Setmodel.ResponseImageArray = $event.PathImageArray;
+    this.Setmodel.depositImg = $event;
+    // to make Setmodel.baseImagePath full after Setmodel.depositImg
+    setTimeout(() => {
+      this.Setmodel.baseImagePath = this.Setmodel.depositImg[0];
+      console.log(this.Setmodel.baseImagePath);
+    }, 1000);
   }
-
   OnSubmitAll() {
     return this.depositService.contactForm(this.Setmodel).subscribe(
       (data) => {this.Setmodel = data; },
