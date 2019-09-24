@@ -1,7 +1,7 @@
-import { Searchbase } from './searchbase';
+import { SearchBase } from './searchbase';
 
-describe('Searchbase', () => {
+describe('SearchBase', () => {
   it('should create an instance', () => {
-    expect(new Searchbase()).toBeTruthy();
+    expect(new SearchBase()).toBeTruthy();
   });
 });
