@@ -393,7 +393,7 @@
               <div class="form-group ">
                 <div class="form-check ">
                   <label  *ngFor="let i of listarray.listFacility;" class="col-md-3" >
-                  <input type="checkbox" [value]="i.id" [id]="i.id" (change)="setfacility(i.id , $event.target, i.title)" >
+                  <input type="checkbox" [value]="i.id" [id]="i.id" (change)="setfacility(i.id , $event.target, i.title)" [checked]='i.check' >
                   {{i.title}}
                   </label>
                 </div>

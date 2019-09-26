@@ -28,7 +28,7 @@
                 <label class="col-sm-4 col-form-label" ><p style="color: red; float: left">*</p>
                   Landlord:</label>
                 <div class="col-sm-8">
-                  <span class="form-group">
+                  <span class="form-control">
                     {{reviewModel.ownerName}}
                   </span>
                 </div>
@@ -38,7 +38,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> Phone:</label>
                 <div class="col-sm-8">
-                 <span class="form-group">
+                 <span class="form-control">
                     {{reviewModel.ownerPhone}}
                   </span>
                 </div>
@@ -48,7 +48,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p> Mobile:</label>
                 <div class="col-sm-8">
-                  <span class="form-group">
+                  <span class="form-control">
                     {{reviewModel.ownerMobile}}
                   </span>
                 </div>
@@ -63,7 +63,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Region:</label>
                 <div class="col-sm-8">
-                  <span>
+                  <span class="form-control">
                     {{reviewModel.region_title}}
                   </span>
                 </div>
@@ -73,7 +73,7 @@
               <div class="form-group row">
                 <label class="col-sm-2 col-form-label"><p style="color: red; float: left ">*</p> Address</label>
                 <div class="col-sm-10">
-                   <span class="form-group">
+                   <span class="form-control">
                     {{reviewModel.address}}
                   </span>
                 </div>
@@ -88,7 +88,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Property:</label>
                 <div class="col-sm-8">
-                 <span>
+                 <span class="form-control">
                    {{reviewModel.propertyType_title}}
                  </span>
                 </div>
@@ -100,7 +100,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Shop Center:</label>
                 <div class="col-sm-8" *ngIf="reviewModel.shopCenterCount!== undefined">
-                  <span class="form-group" >
+                  <span class="form-control" >
                     {{reviewModel.shopCenterCount}}
                   </span>
                 </div>
@@ -111,7 +111,7 @@
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> Unit in
                   floor:</label>
                 <div class="col-sm-8">
-                  <span class="form-group" >
+                  <span class="form-control" >
                     {{reviewModel.unitInFloor}}
                   </span>
                 </div>
@@ -122,7 +122,7 @@
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p> Number of
                   floors:</label>
                 <div class="col-sm-8">
-                  <span class="form-group" >
+                  <span class="form-control" >
                     {{reviewModel.floorNumber}}
                   </span>
                 </div>
@@ -134,7 +134,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> Floor:</label>
                 <div class="col-sm-8">
-                  <span class="form-group" >
+                  <span class="form-control" >
                     {{reviewModel.floorCount}}
                   </span>
                 </div>
@@ -146,7 +146,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> Area:</label>
                 <div class="col-sm-6">
-                   <span class="form-group" >
+                   <span class="form-control" >
                     {{reviewModel.buildingArea}}
                   </span>
                 </div>
@@ -160,7 +160,7 @@
                     <label class="col-sm-4 col-form-label" style="padding: 0; margin-top: 6px"><p
                       style="color: red; float: left">*</p> Bed(s):</label>
                     <div class="col-sm-8">
-                       <span class="form-group" >
+                       <span class="form-control" >
                     {{reviewModel.bedCount}}
                   </span>
                     </div>
@@ -171,7 +171,7 @@
                     <label class="col-sm-4 col-form-label" style="padding: 0; margin-top: 6px"><p
                       style="color: red; float: left">*</p> Bath(s):</label>
                     <div class="col-sm-8">
-                      <span class="form-group" >
+                      <span class="form-control" >
                     {{reviewModel.bathCount}}
                   </span>
                     </div>
@@ -184,15 +184,15 @@
                 <div class="form-group row">
                   <div class="form-check col-sm-5 offset-sm-2" *ngIf="reviewModel.furnished!== undefined">
                     <div *ngIf="reviewModel.furnished">
-                      <span class="form-group" >
-                    furnished
+                      <span class="form-control" >
+                    Furnished
                   </span>
                     </div>
                   </div>
                   <div class="form-check col-sm-5 " *ngIf="reviewModel.semiFurnished!== undefined">
                     <div *ngIf="reviewModel.furnished">
-                    <span class="form-group" >
-                    semiFurnished
+                    <span class="form-control" >
+                    Semi-Furnished
                   </span>
                     </div>
                   </div>
@@ -205,7 +205,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> Building Age:</label>
                 <div class="col-sm-8">
-                  <span class="form-group" >
+                  <span class="form-control" >
                     {{reviewModel.buildingAge}}
                   </span>
                 </div>
@@ -215,7 +215,7 @@
               <div class="form-group row" >
                 <div class="form-check offset-sm-1 " *ngIf="reviewModel.renovate!== undefined" >
                   <div *ngIf="reviewModel.renovate">
-                   <span class="form-group" >
+                   <span class="form-control" >
                     renovate
                   </span>
                   </div>
@@ -234,7 +234,7 @@
                     <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p>
                       Monthly<br>rent:</label>
                     <div class="col-sm-8">
-                       <span class="form-group" >
+                       <span class="form-control" >
                     {{reviewModel.monthlyRent}}
                   </span>
                     </div>
@@ -251,7 +251,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Kitchen:</label>
                 <div class="col-sm-8">
-                  <span>
+                  <span class="form-control">
                     {{reviewModel.kitchenService_title}}
                   </span>
                 </div>
@@ -261,7 +261,7 @@
               <div class="form-group row" >
                 <div class="form-check offset-sm-1 " *ngIf="reviewModel.isAdvertisement!== undefined">
                   <div *ngIf="reviewModel.isAdvertisement">
-                   <span class="form-group" >
+                   <span class="form-control" >
                     Advertisement
                   </span>
                 </div>
@@ -274,7 +274,7 @@
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Floor cover:</label>
                 <div class="col-sm-8">
-                  <span class="form-group" >
+                  <span class="form-control" >
                     {{reviewModel.floorCover_title}}
                   </span>
                 </div>
@@ -285,7 +285,7 @@
                 <label class="col-sm-4 col-form-label" style="padding: 0; margin-top: 6px"><p
                   style="color: red; float: left">*</p> Tel Line:</label>
                 <div class="col-sm-8">
-                  <span class="form-group" >
+                  <span class="form-control" >
                     {{reviewModel.telLineCount}}
                   </span>
                 </div>
@@ -295,7 +295,7 @@
               <div class="form-group row" >
                 <div class="form-check offset-sm-1 " *ngIf="reviewModel.garage!== undefined" >
                   <div *ngIf="reviewModel.garage">
-                  <span class="form-group" >
+                  <span class="form-control" >
                     Garage
                   </span>
                   </div>
@@ -306,7 +306,7 @@
               <div class="form-group row" >
                 <div class="form-check offset-sm-1" *ngIf="reviewModel.storage!== undefined">
                   <div *ngIf="reviewModel.storage">
-                   <span class="form-group" >
+                   <span class="form-control" >
                     Storage
                   </span>
                   </div>
@@ -317,7 +317,7 @@
               <div class="form-group row" >
                 <div class="form-check offset-sm-1 " *ngIf="reviewModel.firePlug!== undefined">
                   <div *ngIf="reviewModel.storage">
-                     <span class="form-group" >
+                     <span class="form-control" >
                    Fire Place
                   </span>
                   </div>
@@ -333,7 +333,7 @@
               <div class="form-group">
                 <div class="form-check">
                   <label *ngFor="let i of reviewModel.depositFac_title" class="col-md-3" >
-                    <span class="form-group" >
+                    <span class="form-control" >
                     {{i}}
                   </span>
                   </label>
@@ -350,7 +350,7 @@
           <div class="row" >
             <div class="form-group col" *ngIf="reviewModel.seoDescription!== undefined">
               <label >SEO-Description:</label>
-              <span class="form-group" >
+              <span class="form-control" >
                     {{reviewModel.seoDescription}}
                   </span>
             </div>
@@ -358,7 +358,7 @@
           <div class="row" >
             <div class="form-group col" *ngIf="reviewModel.seoTitle!== undefined">
               <label >SEO-Title:</label>
-              <span class="form-group" >
+              <span class="form-control" >
                     {{reviewModel.seoTitle}}
                   </span>
             </div>

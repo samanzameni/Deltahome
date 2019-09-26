@@ -3,7 +3,7 @@
     <div class="card-body">
       <div class="row" *ngIf="AddVisibleComp">
         <div class="col-md">
-          <app-zameniform (Event)="MapVisible()"></app-zameniform>
+          <app-zameniform (Event)="MapVisible()" (AddPropertyEvent)="FillSetModel($event)"></app-zameniform>
         </div>
       </div>
       <div *ngIf="MapVisibleComp">
@@ -17,7 +17,7 @@
         <br>
         <div class="row">
         <div class="col-md">
-          <app-leaflet (messageEvent)="receiveModel($event)"></app-leaflet>
+          <app-leaflet [longiParent]="Setmodel.longitude" [latiParent]="Setmodel.latitude" (messageEvent)="receiveModel($event)"></app-leaflet>
         </div>
       </div>
       </div>

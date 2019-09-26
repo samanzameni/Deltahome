@@ -83,7 +83,7 @@ export class PropertyListComponent implements OnInit {
   }
 
   EditButton(id) {
-    this.router.navigate(['/AddProperty'], { queryParams: { depositId: id } });
+    this.router.navigate(['/SetDeposit'], { queryParams: { depositId: id } });
   }
 
 

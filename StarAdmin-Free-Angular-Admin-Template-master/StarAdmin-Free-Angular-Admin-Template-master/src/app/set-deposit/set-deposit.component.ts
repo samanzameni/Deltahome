@@ -1,7 +1,7 @@
-import {AfterViewInit, Component, OnInit, ViewChild, ChangeDetectorRef} from '@angular/core';
- import {ZameniformComponent} from '../zameniform/zameniform.component';
+import { Component, OnInit} from '@angular/core';
  import {Deposit} from '../zameniform/deposit';
 import {DepositService} from '../zameniform/deposit.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
 
@@ -9,19 +9,14 @@ import {DepositService} from '../zameniform/deposit.service';
   templateUrl: './set-deposit.component.html',
   styleUrls: ['./set-deposit.component.scss']
 })
-export class SetDepositComponent implements OnInit, AfterViewInit  {
+export class SetDepositComponent implements OnInit {
   AddVisibleComp = true;
   MapVisibleComp = false;
   ReviewVisibleComp = false;
-  @ViewChild(ZameniformComponent, {static: false}) AddProperty;
 
-  constructor(private cdr: ChangeDetectorRef, public depositService: DepositService) { }
-   Setmodel = new Deposit();
-
-  ngAfterViewInit() {
-    this.Setmodel = this.AddProperty.model;
-    this.cdr.detectChanges();
+  constructor( public depositService: DepositService, private router: ActivatedRoute) {
   }
+   Setmodel = new Deposit();
   receiveModel($event) {
     this.Setmodel.latitude = $event.lati;
     this.Setmodel.longitude = $event.longi;
@@ -31,13 +26,20 @@ export class SetDepositComponent implements OnInit, AfterViewInit  {
     this.AddVisibleComp = false;
     this.MapVisibleComp = true;
   }
+  // filling Setmodel with model.
+  FillSetModel($event) {
+    this.Setmodel = $event;
+    console.log(this.Setmodel );
+  }
   ReviewVisible() {
     this.AddVisibleComp = false;
     this.MapVisibleComp = false;
     this.ReviewVisibleComp = true;
   }
-  receivePathImage($event) {
-    this.Setmodel.depositImg = $event;
+  receivePathImage(event) {
+    this.Setmodel.depositImg = event;
+    console.log(event);
+    console.log(this.Setmodel.depositImg);
     // to make Setmodel.baseImagePath full after Setmodel.depositImg
     setTimeout(() => {
       this.Setmodel.baseImagePath = this.Setmodel.depositImg[0];
@@ -45,12 +47,27 @@ export class SetDepositComponent implements OnInit, AfterViewInit  {
     }, 1000);
   }
   OnSubmitAll() {
+    const depositId: string = this.router.snapshot.queryParamMap.get('depositId');
+    if (depositId == null) {
     return this.depositService.contactForm(this.Setmodel).subscribe(
-      (data) => {this.Setmodel = data; },
-      err => { console.log(err);
+      (data) => {
+        this.Setmodel = data;
+        },
+        err => { console.log(err);
       }
     );
+    } else {
+      this.Setmodel.id = parseFloat(depositId);
+      return this.depositService.EditDepositPost(this.Setmodel).subscribe(
+        (data) => {
+          this.Setmodel = data;
+        },
+        err => { console.log(err);
+        }
+      );
+    }
   }
   ngOnInit() {
+
 }
 }

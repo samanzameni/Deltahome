@@ -1,5 +1,5 @@
 export class Deposit {
-
+    public id = 0;
     public adviser_id: any;
     public adviser_title: any;
     public ownerName: any;
@@ -38,6 +38,6 @@ export class Deposit {
     public longitude: any;
     public depositFac: number[] = [];
     public depositFac_title: string[] = [];
-    public depositImg: any[] = [];
+    public depositImg: string[] = [];
     public baseImagePath: any;
 }

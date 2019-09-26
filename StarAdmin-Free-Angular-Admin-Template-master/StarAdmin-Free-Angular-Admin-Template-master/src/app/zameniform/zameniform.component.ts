@@ -17,7 +17,6 @@ export class ZameniformComponent implements OnInit {
   constructor(public depositService: DepositService, private fb: FormBuilder , private router: ActivatedRoute, private http: HttpClient ) {
     this.createForm();
   }
-
   angForm: FormGroup;
   model = new Deposit();
   submitted = false;
@@ -32,14 +31,21 @@ export class ZameniformComponent implements OnInit {
   };
   public  visibleForm = true;
   @Output() Event = new EventEmitter<boolean>();
+  @Output() AddPropertyEvent = new EventEmitter<Deposit>();
   VisibleEvent() {
     this.Event.emit(this.visibleForm);
-  this.onSubmit();
+    this.onSubmit();
+    this.AddPropertyEvent.emit(this.model);
   }
   setfacility(facilityid, event, title) {
     if (event.checked) {
+      console.log(this.model.depositFac);
       this.model.depositFac.push(facilityid);
-      this.model.depositFac_title.push(title);
+
+     // this.model.depositFac = facilityid;
+       this.model.depositFac_title.push(title);
+      console.log(this.model.depositFac_title);
+     // this.model.depositFac_title = title;
     } else {
       this.i = this.model.depositFac.indexOf((facilityid));
       this.model.depositFac.splice(this.i, 1);
@@ -50,7 +56,8 @@ export class ZameniformComponent implements OnInit {
   }
   advisorarray() {
     return this.depositService.contactForm2().subscribe(
-      (data) => { this.listarray = data;
+      (data) => {
+        this.listarray = data;
         console.log(this.listarray);
         },
     (err) => console.log(err)
@@ -93,7 +100,17 @@ export class ZameniformComponent implements OnInit {
     return this.http.get<Deposit>(this.ServerUrl + 'deposit/edit?depositId=' + id, this.httpOptions).subscribe(
       (data) => {
         this.model = data;
-        console.log(this.model);
+        let i;
+        let j;
+        setTimeout( () => {
+        for (i = 0; i <= this.listarray.listFacility.length; i++) {
+          for (j = 0; j <= this.model.depositFac.length; j++) {
+            if (this.listarray.listFacility[i].id === this.model.depositFac[j]) {
+              this.listarray.listFacility[i].check = true;
+              break;
+            }
+          }
+    } }, 500 );
       },
       (err) => console.log(err)
     );
@@ -118,7 +135,7 @@ export class ZameniformComponent implements OnInit {
 
   ngOnInit() {
     const depositId: string = this.router.snapshot.queryParamMap.get('depositId');
-    if (depositId !== null) {this.EditForm(depositId); }
     this.advisorarray();
+    if (depositId !== null) {this.EditForm(depositId); }
   }
 }

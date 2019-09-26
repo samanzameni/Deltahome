@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {HttpClient, HttpEventType, HttpHeaders} from '@angular/common/http';
 
+
 @Component({
   selector: 'app-imageupload',
   templateUrl: './imageupload.component.html',
@@ -12,11 +13,11 @@ export class ImageuploadComponent implements OnInit {
   previewUrl: any = null;
   fileData: File = null;
   imageArray: string [] = [];
-  PathImageArray: any [] = [];
+  PathImageArray: string [] = [];
   theAddress = '';
 
   // EventEmitter for array.
-  @Output() imageEvent = new EventEmitter<any[]>();
+  @Output() imageEvent = new EventEmitter<string[]>();
   ImageMessage() {
     this.imageEvent.emit(this.PathImageArray);
     this.onSubmit();
@@ -63,17 +64,18 @@ export class ImageuploadComponent implements OnInit {
       headers: new HttpHeaders(
         {'accept': 'application/json'})
     })
-      .subscribe(events => {
-
+      .subscribe(
+        events => {
         if (events.type === HttpEventType.UploadProgress) {
           this.fileUploadProgress = Math.round(events.loaded / events.total * 100) + '%';
           console.log(this.fileUploadProgress);
         } else if (events.type === HttpEventType.Response) {
           this.fileUploadProgress = '';
-          console.log(events.body);
           alert('SUCCESS !!');
-          this.PathImageArray.push(events.body); console.log(this.PathImageArray);
-
+          const obj: string = JSON.stringify(events.body);
+         const returnAddressImage: string = obj.split(':')[1].split('}')[0].split('"')[1].split('"')[0];
+          this.PathImageArray.push(returnAddressImage);
+          console.log(this.PathImageArray);
         }
       }
       );
@@ -88,3 +90,4 @@ export class ImageuploadComponent implements OnInit {
 
 
 }
+
