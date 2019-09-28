@@ -36,15 +36,14 @@ export class SetDepositComponent implements OnInit {
     this.MapVisibleComp = false;
     this.ReviewVisibleComp = true;
   }
+  receiveBasePathImage(event) {
+    this.Setmodel.baseImagePath = event;
+  }
   receivePathImage(event) {
     this.Setmodel.depositImg = event;
     console.log(event);
     console.log(this.Setmodel.depositImg);
-    // to make Setmodel.baseImagePath full after Setmodel.depositImg
-    setTimeout(() => {
-      this.Setmodel.baseImagePath = this.Setmodel.depositImg[0];
-      console.log(this.Setmodel.baseImagePath);
-    }, 1000);
+
   }
   OnSubmitAll() {
     const depositId: string = this.router.snapshot.queryParamMap.get('depositId');

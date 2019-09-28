@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {HttpClient, HttpEventType, HttpHeaders} from '@angular/common/http';
 
 
@@ -8,6 +8,7 @@ import {HttpClient, HttpEventType, HttpHeaders} from '@angular/common/http';
   styleUrls: ['./imageupload.component.scss']
 })
 export class ImageuploadComponent implements OnInit {
+  constructor(private http: HttpClient) { }
   title = 'ImageUpload';
   fileUploadProgress: string = null;
   previewUrl: any = null;
@@ -18,12 +19,17 @@ export class ImageuploadComponent implements OnInit {
 
   // EventEmitter for array.
   @Output() imageEvent = new EventEmitter<string[]>();
+  @Output() selectedEvent = new EventEmitter<string>();
+  @Input() depositImgEdit: string[] = [];
+   public selectedIndex: string ;
   ImageMessage() {
     this.imageEvent.emit(this.PathImageArray);
+    this.selectedEvent.emit(this.selectedIndex);
     this.onSubmit();
   }
-  constructor(private http: HttpClient) { }
   ngOnInit() {
+    this.imageArray = this.depositImgEdit;
+    console.log(this.imageArray);
 
   }
 
@@ -49,11 +55,18 @@ export class ImageuploadComponent implements OnInit {
 
   removeImage(index) {
     this.imageArray.splice(this.imageArray.indexOf((index)), 1);
+    if (this.selectedIndex === index) {
+      this.selectedIndex = '';
+    }
+  }
+  selectImageMain(_index: string) {
+    this.selectedIndex = _index;
   }
 
   onSubmit() {
     if (this.theAddress !== '') {
-    if (this.imageArray.length <= 7) {
+    if (this.imageArray.length <= 7 ) {
+      if (this.imageArray.indexOf(this.theAddress) < 0) {
       this.imageArray.push(this.theAddress);
     const formData = new FormData();
     this.fileUploadProgress = '0%';
@@ -80,13 +93,15 @@ export class ImageuploadComponent implements OnInit {
       }
       );
   } else {
-    alert('error');
+    alert('in akse tekrari ast');
+    }
+    } else {
+      alert('error');
     }
   } else {
       alert('plz select image');
     }
   }
-
 
 
 }

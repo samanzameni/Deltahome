@@ -24,7 +24,7 @@
         <div class="col-md-4" *ngFor="let i of imageArray">
         <div class="row" style="margin-bottom: 15px">
           <i class="fa fa-trash col-md-2" (click)="removeImage(i)" style="color: red"></i>
-          <img class="col-md-10" [src]="i" height="150" width="150" alt="img"/>
+          <img class="col-md-10" [src]="i" height="150" width="150" alt="img" [ngClass]="{'active-border':selectedIndex === i}" (click)="selectImageMain(i)"/>
         </div>
         </div>
         </div>
@@ -37,3 +37,5 @@
 </div>
   </div>
 </div>
+
+

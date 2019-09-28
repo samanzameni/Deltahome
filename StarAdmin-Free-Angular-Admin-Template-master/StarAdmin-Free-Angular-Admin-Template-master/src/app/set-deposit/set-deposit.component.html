@@ -9,7 +9,7 @@
       <div *ngIf="MapVisibleComp">
         <div class="row">
           <div class="col-md">
-            <app-imageupload (imageEvent)="receivePathImage($event)"></app-imageupload>
+            <app-imageupload [depositImgEdit]="Setmodel.depositImg"  (imageEvent)="receivePathImage($event)" (selectedEvent)="receiveBasePathImage($event)"></app-imageupload>
           </div>
         </div>
         <br>
