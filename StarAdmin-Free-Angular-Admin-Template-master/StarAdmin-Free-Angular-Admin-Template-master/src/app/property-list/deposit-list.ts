@@ -8,5 +8,6 @@ export class DepositList {
   public writeDate: string;
   public viewCount: number;
   public imageCount: number;
-
+  public count: number;
+  public size: number;
 }

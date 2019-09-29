@@ -68,6 +68,11 @@ export class PropertyListComponent implements OnInit {
     return this.http.post<DepositList[]>(this.ServerUrl + 'deposit/search', searchparam, this.httpOptions).subscribe(
       (data) => {
       this.depositList = data;
+      if (this.TypeGetList === 1) {
+        this.depositCount.count = data[0].count;
+        this.depositCount.size = data[0].size;
+      }
+        this.TypeGetList = 0;
         console.log(this.depositList);
       },
       (err) => console.log(err)
@@ -87,7 +92,7 @@ export class PropertyListComponent implements OnInit {
 
   SearchSubmit() {
     this.param.isCount = true;
-    // 1 is type list. 
+     // 1 is type list.
     this.TypeGetList = 1;
   return this.Search(this.param);
   }
