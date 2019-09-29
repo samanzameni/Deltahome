@@ -23,6 +23,7 @@ export class PropertyListComponent implements OnInit {
   depositCount = new Depositcount();
   searchBase: SearchBase;
   param = new SearchParam();
+  public TypeGetList = 0;
 
   ServerUrl = 'http://172.16.25.113/api/';
 
@@ -63,7 +64,7 @@ export class PropertyListComponent implements OnInit {
     );
   }
 
-  postSearchParam(searchparam: SearchParam) {
+  Search(searchparam: SearchParam) {
     return this.http.post<DepositList[]>(this.ServerUrl + 'deposit/search', searchparam, this.httpOptions).subscribe(
       (data) => {
       this.depositList = data;
@@ -74,12 +75,21 @@ export class PropertyListComponent implements OnInit {
   }
 
   onPageChange(event) {
-    this.getlistdeposit(event);
+    if (this.TypeGetList === 1) {
+      this.param.pageNumber = event;
+      this.param.isCount = false;
+      this.Search(this.param);
+    } else {
+      this.getlistdeposit(event);
+    }
     console.log(event);
   }
 
   SearchSubmit() {
-  return this.postSearchParam(this.param);
+    this.param.isCount = true;
+    // 1 is type list. 
+    this.TypeGetList = 1;
+  return this.Search(this.param);
   }
 
   EditButton(id) {

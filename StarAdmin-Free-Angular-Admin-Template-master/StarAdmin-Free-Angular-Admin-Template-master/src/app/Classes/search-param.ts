@@ -9,4 +9,6 @@ export class SearchParam {
   public decoratId: any;
   public bedroomCount: any;
   public bathroomCount: any;
+  public pageNumber = 1;
+  public isCount = false;
 }
