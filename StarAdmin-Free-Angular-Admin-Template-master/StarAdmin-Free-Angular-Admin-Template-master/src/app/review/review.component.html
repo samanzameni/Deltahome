@@ -11,8 +11,8 @@
             <div class="col-md-4">
               <div class="form-group row">
                 <label class="col-sm-4 col-form-label">Advisor:</label>
-                <div  class="col-sm-8" *ngIf="reviewModel.adviser_title!== null">
-                  <span class="form-control" >
+                <div  class="col-sm-8" *ngIf="reviewModel.adviser_title!== undefined">
+                  <span class="form-control">
                       {{reviewModel.adviser_title}}
                   </span>
                 </div>
@@ -355,7 +355,7 @@
                   </span>
             </div>
           </div>
-          <div class="row" >
+          <div class="row">
             <div class="form-group col" *ngIf="reviewModel.seoTitle!== undefined">
               <label >SEO-Title:</label>
               <span class="form-control" >

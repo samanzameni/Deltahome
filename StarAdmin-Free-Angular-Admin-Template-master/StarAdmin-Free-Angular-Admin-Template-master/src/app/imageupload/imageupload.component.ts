@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {HttpClient, HttpEventType, HttpHeaders} from '@angular/common/http';
+import {ToastrService} from 'ngx-toastr';
 
 
 @Component({
@@ -8,7 +9,7 @@ import {HttpClient, HttpEventType, HttpHeaders} from '@angular/common/http';
   styleUrls: ['./imageupload.component.scss']
 })
 export class ImageuploadComponent implements OnInit {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private toastrService: ToastrService) { }
   title = 'ImageUpload';
   fileUploadProgress: string = null;
   previewUrl: any = null;
@@ -59,8 +60,8 @@ export class ImageuploadComponent implements OnInit {
       this.selectedIndex = '';
     }
   }
-  selectImageMain(_index: string) {
-    this.selectedIndex = _index;
+  selectImageMain(index: string) {
+    this.selectedIndex = index;
   }
 
   onSubmit() {
@@ -84,7 +85,7 @@ export class ImageuploadComponent implements OnInit {
           console.log(this.fileUploadProgress);
         } else if (events.type === HttpEventType.Response) {
           this.fileUploadProgress = '';
-          alert('SUCCESS !!');
+          this.toastrService.success('Image Uploaded successfully.', '', {timeOut: 4000});
           const obj: string = JSON.stringify(events.body);
          const returnAddressImage: string = obj.split(':')[1].split('}')[0].split('"')[1].split('"')[0];
           this.PathImageArray.push(returnAddressImage);
@@ -93,13 +94,13 @@ export class ImageuploadComponent implements OnInit {
       }
       );
   } else {
-    alert('in akse tekrari ast');
+        this.toastrService.error('This is a duplicate photo.', '', {timeOut: 4000});
     }
     } else {
-      alert('error');
+      this.toastrService.error('You can attach 8 photo for each listing.', '', {timeOut: 4000});
     }
   } else {
-      alert('plz select image');
+      this.toastrService.error('Please select a photo.', '', {timeOut: 4000});
     }
   }
 

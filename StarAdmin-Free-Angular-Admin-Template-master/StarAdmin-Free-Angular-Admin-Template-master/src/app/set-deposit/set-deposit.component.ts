@@ -38,6 +38,7 @@ export class SetDepositComponent implements OnInit {
   }
   receiveBasePathImage(event) {
     this.Setmodel.baseImagePath = event;
+    console.log(this.Setmodel.baseImagePath);
   }
   receivePathImage(event) {
     this.Setmodel.depositImg = event;

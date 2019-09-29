@@ -1,9 +1,9 @@
-import {Component, OnInit, Input, Output, EventEmitter} from '@angular/core';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {Deposit} from './deposit';
 import {DepositService} from './deposit.service';
 import {Firstdata} from '../Classes/firstdata';
-import { ActivatedRoute} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 
 
@@ -65,11 +65,6 @@ export class ZameniformComponent implements OnInit {
   }
   onSubmit() {
     this.submitted = true;
-    // return this.depositService.contactForm(this.model).subscribe(
-    //   (data) => {this.model = data; },
-    //   err => { console.log(err);
-    //   }
-    //   );
   }
 
 
@@ -118,7 +113,7 @@ export class ZameniformComponent implements OnInit {
   }
 // to bind the second value and full title.
   GetTextDropDwonAdvisor(event) {
-  this.model.adviser_title = event.target.options[event.target.options.selectedIndex].text;
+    this.model.adviser_title = event.target.options[event.target.options.selectedIndex].text;
   }
   GetTextDropDwonRegion(event) {
     this.model.region_title = event.target.options[event.target.options.selectedIndex].text;

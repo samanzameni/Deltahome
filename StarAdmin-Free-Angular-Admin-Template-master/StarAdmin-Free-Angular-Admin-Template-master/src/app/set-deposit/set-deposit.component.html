@@ -22,13 +22,18 @@
       </div>
       </div>
       <div class="row" *ngIf="ReviewVisibleComp">
+        <div class="row">
         <div class="col-md">
           <app-review [reviewModel] = "Setmodel"></app-review>
         </div>
-        <div>
-          <button type="submit" class="btn btn-primary btn-fw" (click)="OnSubmitAll()">Send Message</button>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <button type="submit" class="btn btn-primary btn-fw" (click)="OnSubmitAll()">Send Message</button>
+          </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>

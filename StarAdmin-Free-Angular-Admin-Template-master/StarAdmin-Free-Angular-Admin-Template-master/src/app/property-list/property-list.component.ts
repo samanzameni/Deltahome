@@ -64,9 +64,10 @@ export class PropertyListComponent implements OnInit {
   }
 
   postSearchParam(searchparam: SearchParam) {
-    return this.http.post<SearchParam>(this.ServerUrl + 'deposit/search', searchparam, this.httpOptions).subscribe(
-      (data) => {this.param = data;
-        console.log(this.param);
+    return this.http.post<DepositList[]>(this.ServerUrl + 'deposit/search', searchparam, this.httpOptions).subscribe(
+      (data) => {
+      this.depositList = data;
+        console.log(this.depositList);
       },
       (err) => console.log(err)
     );

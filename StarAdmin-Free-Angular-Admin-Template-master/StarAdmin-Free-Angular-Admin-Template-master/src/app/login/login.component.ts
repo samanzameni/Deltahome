@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   password = '';
   username = '';
 
-  constructor(private toastrService: ToastrService, private http: HttpClient, public router: Router) { }
+  constructor(private toastrService: ToastrService, private http: HttpClient) { }
   ngOnInit() {
   }
   passwordChange($event) {
