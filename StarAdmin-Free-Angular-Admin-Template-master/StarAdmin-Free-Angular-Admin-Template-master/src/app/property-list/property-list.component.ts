@@ -73,7 +73,6 @@ export class PropertyListComponent implements OnInit {
     );
   }
 
-
   onPageChange(event) {
     this.getlistdeposit(event);
     console.log(event);
