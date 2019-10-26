@@ -3,14 +3,21 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --port 4599 --proxy-config proxy.conf.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@asymmetrik/ngx-leaflet": "^5.0.2",
+    "angular-popper": "^2.0.1",
+    "jwt-decode": "^2.2.0",
+    "leaflet": "^1.5.1",
+    "ngx-pagination": "^4.1.0",
+    "popper.js": "^1.15.0"
+  },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.802.2",
     "@angular/animations": "^8.2.4",
@@ -27,6 +34,7 @@
     "@ng-bootstrap/ng-bootstrap": "^4.2.1",
     "@types/jasmine": "^2.8.16",
     "@types/jasminewd2": "^2.0.6",
+    "@types/leaflet": "^1.5.1",
     "@types/node": "^8.9.5",
     "angular-bootstrap-md": "^8.2.0",
     "angular-ui-notification": "^0.3.6",
@@ -38,7 +46,7 @@
     "jasmine-core": "^2.99.1",
     "jasmine-spec-reporter": "^4.2.1",
     "jquery": "^3.4.1",
-    "karma": "^3.1.4",
+    "karma": "^4.3.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-coverage-istanbul-reporter": "^2.0.6",
     "karma-jasmine": "^1.1.2",

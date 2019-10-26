@@ -11,11 +11,12 @@
 
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label">Advisor:</label>
-                <div class="col-sm-9">
-                  <select class="form-control" [(ngModel)]="model.Adviser" [ngModelOptions]="{standalone: true}">
-                    <option value="1">tehran</option>
-
+                <label class="col-sm-4 col-form-label">Advisor:</label>
+                <div  class="col-sm-8">
+                  <select class="form-control" [(ngModel)]="model.adviser_id" [ngModelOptions]="{standalone: true}" (change)="GetTextDropDwonAdvisor($event)">
+                    <option *ngFor="let i of listarray.listAdvisor" [ngValue]="i.Id">
+                      {{i.fullName}}
+                    </option>
                   </select>
                 </div>
               </div>
@@ -27,41 +28,41 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label" ><p style="color: red; float: left">*</p>
+                <label class="col-sm-4 col-form-label" ><p style="color: red; float: left">*</p>
                   Landlord:</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" formControlName="landlord" [(ngModel)]="model.Landlord" required/>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" formControlName="ownerName" [(ngModel)]="model.ownerName" required/>
                 </div>
 
               </div>
-              <div *ngIf="angForm.controls['landlord'].invalid && (angForm.controls['landlord'].dirty || angForm.controls['landlord'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['landlord'].errors?.required">
+              <div *ngIf="angForm.controls['ownerName'].invalid && (angForm.controls['ownerName'].dirty || angForm.controls['ownerName'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['ownerName'].errors?.required">
                   Landlord is required.
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Phone:</label>
-                <div class="col-sm-9">
-                  <input type="number" class="form-control" formControlName="phone" [(ngModel)]="model.Phone" required/>
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> Phone:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control" formControlName="ownerPhone" [(ngModel)]="model.ownerPhone" required/>
                 </div>
               </div>
-              <div *ngIf="angForm.controls['phone'].invalid && (angForm.controls['phone'].dirty || angForm.controls['phone'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['phone'].errors?.required">
+              <div *ngIf="angForm.controls['ownerPhone'].invalid && (angForm.controls['ownerPhone'].dirty || angForm.controls['ownerPhone'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['ownerPhone'].errors?.required">
                   Phone is required.
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left ">*</p> Mobile:</label>
-                <div class="col-sm-9">
-                  <input type="number" class="form-control" formControlName="Mobile" [(ngModel)]="model.Mobile" required/>
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p> Mobile:</label>
+                <div class="col-sm-8">
+                  <input type="number" class="form-control" formControlName="ownerMobile" [(ngModel)]="model.ownerMobile" required/>
                 </div>
               </div>
-              <div *ngIf="angForm.controls['Mobile'].invalid && (angForm.controls['Mobile'].dirty || angForm.controls['Mobile'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['Mobile'].errors?.required">
+              <div *ngIf="angForm.controls['ownerMobile'].invalid && (angForm.controls['ownerMobile'].dirty || angForm.controls['ownerMobile'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['ownerMobile'].errors?.required">
                   Mobile is required.
                 </div>
               </div>
@@ -74,16 +75,16 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left ">*</p>Region:</label>
-                <div class="col-sm-9">
-                  <select class="form-control" formControlName="Region" [(ngModel)]="model.Region" required>
-                    <option>Home</option>
-                    <!--<option></option>-->
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Region:</label>
+                <div class="col-sm-8">
+                  <select class="form-control" formControlName="region_id" [(ngModel)]="model.region_id" (change)="GetTextDropDwonRegion($event)" required>
+                    <option *ngFor="let i of listarray.listRegion" [ngValue]="i.id">{{i.title}}</option>
+
                   </select>
                 </div>
               </div>
-              <div *ngIf="angForm.controls['Region'].invalid && (angForm.controls['Region'].dirty || angForm.controls['Region'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['Region'].errors?.required">
+              <div *ngIf="angForm.controls['region_id'].invalid && (angForm.controls['region_id'].dirty || angForm.controls['region_id'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['region_id'].errors?.required">
                   Region is required.
                 </div>
               </div>
@@ -92,13 +93,13 @@
 
             <div class="col-md-8">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left ">*</p> Address</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" formControlName="Address" [(ngModel)]="model.Address" required/>
+                <label class="col-sm-2 col-form-label"><p style="color: red; float: left ">*</p> Address</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" formControlName="address" [(ngModel)]="model.address" required/>
                 </div>
               </div>
-              <div *ngIf="angForm.controls['Address'].invalid && (angForm.controls['Address'].dirty || angForm.controls['Address'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['Address'].errors?.required">
+              <div *ngIf="angForm.controls['address'].invalid && (angForm.controls['address'].dirty || angForm.controls['address'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['address'].errors?.required">
                   Address is required.
                 </div>
               </div>
@@ -110,46 +111,16 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left ">*</p>Property:</label>
-                <div class="col-sm-9">
-                  <select class="form-control" formControlName="Property" [(ngModel)]="model.Property" required>
-                    <option>Home</option>
-                    <!--<option></option>-->
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Property:</label>
+                <div class="col-sm-8">
+                  <select class="form-control" formControlName="propertyType_id" [(ngModel)]="model.propertyType_id" (change)="GetTextDropDwonPropertyType($event)" required >
+                    <option *ngFor="let i of listarray.listPropertys" [ngValue]="i.id">{{i.title}}</option>
                   </select>
                 </div>
               </div>
-              <div *ngIf="angForm.controls['Property'].invalid && (angForm.controls['Property'].dirty || angForm.controls['Property'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['Property'].errors?.required">
+              <div *ngIf="angForm.controls['propertyType_id'].invalid && (angForm.controls['propertyType_id'].dirty || angForm.controls['propertyType_id'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['propertyType_id'].errors?.required">
                   Property is required.
-                </div>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label">Usage:</label>
-                <div class="col-sm-9">
-                  <select class="form-control" [(ngModel)]="model.Usage" [ngModelOptions]="{standalone: true}">
-                    <option>1</option>
-
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-4">
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left ">*</p>Building
-                  Position:</label>
-                <div class="col-sm-9">
-                  <select class="form-control" formControlName="Building" [(ngModel)]="model.Building" required>
-                    <option>1</option>
-
-                  </select>
-                </div>
-              </div>
-              <div *ngIf="angForm.controls['Building'].invalid && (angForm.controls['Building'].dirty || angForm.controls['Building'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['Building'].errors?.required">
-                  Building Position is required.
                 </div>
               </div>
             </div>
@@ -157,41 +128,36 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Storeys:</label>
-                <div class="col-sm-9">
-                  <input type="number" class="form-control" placeholder="0" formControlName="Storeys" [(ngModel)]="model.Storeys" required/>
-                </div>
-              </div>
-              <div *ngIf="angForm.controls['Storeys'].invalid && (angForm.controls['Storeys'].dirty || angForm.controls['Storeys'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['Storeys'].errors?.required">
-                  Storeys is required.
+                <label class="col-sm-4 col-form-label">Shop Center:</label>
+                <div class="col-sm-8">
+                  <input type="number" class="form-control" placeholder="0"  [(ngModel)]="model.shopCenterCount" required [ngModelOptions]="{standalone: true}"/>
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Apartment in
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> Unit in
                   floor:</label>
-                <div class="col-sm-9">
-                  <input type="number" class="form-control" formControlName="Apartment" [(ngModel)]="model.Apartment" required/>
+                <div class="col-sm-8">
+                  <input type="number" class="form-control" formControlName="unitInFloor" [(ngModel)]="model.unitInFloor" required/>
                 </div>
               </div>
-              <div *ngIf="angForm.controls['Apartment'].invalid && (angForm.controls['Apartment'].dirty || angForm.controls['Apartment'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['Apartment'].errors?.required">
+              <div *ngIf="angForm.controls['unitInFloor'].invalid && (angForm.controls['unitInFloor'].dirty || angForm.controls['unitInFloor'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['unitInFloor'].errors?.required">
                   Apartment in floor is required.
                 </div>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left ">*</p> Number of
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p> Number of
                   floors:</label>
-                <div class="col-sm-9">
-                  <input type="number" class="form-control" formControlName="Number" [(ngModel)]="model.Number" required/>
+                <div class="col-sm-8">
+                  <input type="number" class="form-control" formControlName="floorNumber" [(ngModel)]="model.floorNumber" required/>
                 </div>
               </div>
-              <div *ngIf="angForm.controls['Number'].invalid && (angForm.controls['Number'].dirty || angForm.controls['Number'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['Number'].errors?.required">
+              <div *ngIf="angForm.controls['floorNumber'].invalid && (angForm.controls['floorNumber'].dirty || angForm.controls['floorNumber'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['floorNumber'].errors?.required">
                   Number of floors is required.
                 </div>
               </div>
@@ -200,43 +166,31 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Floor:</label>
-                <div class="col-sm-9">
-                  <input type="number" class="form-control" placeholder="0" formControlName="Floor" [(ngModel)]="model.Floor" required/>
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> Floor:</label>
+                <div class="col-sm-8">
+                  <input type="number" class="form-control" placeholder="0" formControlName="floorCount" [(ngModel)]="model.floorCount" required/>
                 </div>
               </div>
-              <div *ngIf="angForm.controls['Floor'].invalid && (angForm.controls['Floor'].dirty || angForm.controls['Floor'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['Floor'].errors?.required">
+              <div *ngIf="angForm.controls['floorCount'].invalid && (angForm.controls['floorCount'].dirty || angForm.controls['floorCount'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['floorCount'].errors?.required">
                   Floor is required.
                 </div>
               </div>
             </div>
-            <div class="col-md-4">
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> No Apartment:</label>
-                <div class="col-sm-9">
-                  <input type="number" class="form-control" placeholder="0" formControlName="No" [(ngModel)]="model.No" required/>
-                </div>
-              </div>
-              <div *ngIf="angForm.controls['No'].invalid && (angForm.controls['No'].dirty || angForm.controls['No'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['No'].errors?.required">
-                  No Apartment is required.
-                </div>
-              </div>
-            </div>
+
 
           </div>
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Area:</label>
-                <div class="col-sm-7">
-                  <input type="number" class="form-control" formControlName="Area" [(ngModel)]="model.Area" required/>
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> Area:</label>
+                <div class="col-sm-6">
+                  <input type="number" class="form-control" formControlName="buildingArea" [(ngModel)]="model.buildingArea" required/>
                 </div>
                 <div class="col-sm-2" style="font-size: 12px; padding-top: 5px">sqm</div>
               </div>
-              <div *ngIf="angForm.controls['Area'].invalid && (angForm.controls['Area'].dirty || angForm.controls['Area'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['Area'].errors?.required">
+              <div *ngIf="angForm.controls['buildingArea'].invalid && (angForm.controls['buildingArea'].dirty || angForm.controls['buildingArea'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['buildingArea'].errors?.required">
                   Area is required.
                 </div>
               </div>
@@ -245,28 +199,28 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group row">
-                    <label class="col-sm-5 col-form-label" style="padding: 0; margin-top: 6px"><p
+                    <label class="col-sm-4 col-form-label" style="padding: 0; margin-top: 6px"><p
                       style="color: red; float: left">*</p> Bed(s):</label>
-                    <div class="col-sm-7">
-                      <input type="number" class="form-control" formControlName="Bed" [(ngModel)]="model.Bed" required/>
+                    <div class="col-sm-8">
+                      <input type="number" class="form-control" formControlName="bedCount" [(ngModel)]="model.bedCount" required/>
                     </div>
                   </div>
-                  <div *ngIf="angForm.controls['Bed'].invalid && (angForm.controls['Bed'].dirty || angForm.controls['Bed'].touched)" class="alert alert-danger">
-                    <div *ngIf="angForm.controls['Bed'].errors?.required">
+                  <div *ngIf="angForm.controls['bedCount'].invalid && (angForm.controls['bedCount'].dirty || angForm.controls['bedCount'].touched)" class="alert alert-danger">
+                    <div *ngIf="angForm.controls['bedCount'].errors?.required">
                       Bed is required.
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group row">
-                    <label class="col-sm-5 col-form-label" style="padding: 0; margin-top: 6px"><p
+                    <label class="col-sm-4 col-form-label" style="padding: 0; margin-top: 6px"><p
                       style="color: red; float: left">*</p> Bath(s):</label>
-                    <div class="col-sm-7">
-                      <input type="number" class="form-control" formControlName="Bath" [(ngModel)]="model.Bath" required/>
+                    <div class="col-sm-8">
+                      <input type="number" class="form-control" formControlName="bathCount" [(ngModel)]="model.bathCount" required/>
                     </div>
                   </div>
-                  <div *ngIf="angForm.controls['Bath'].invalid && (angForm.controls['Bath'].dirty || angForm.controls['Bath'].touched)" class="alert alert-danger">
-                    <div *ngIf="angForm.controls['Bath'].errors?.required">
+                  <div *ngIf="angForm.controls['bathCount'].invalid && (angForm.controls['bathCount'].dirty || angForm.controls['bathCount'].touched)" class="alert alert-danger">
+                    <div *ngIf="angForm.controls['bathCount'].errors?.required">
                       Bath is required.
                     </div>
                   </div>
@@ -277,12 +231,12 @@
               <div class="row">
                 <div class="form-group row">
                   <div class="form-check col-sm-5 offset-sm-2">
-                    <input type="checkbox" class="form-check-input " id="exampleCheck1" [(ngModel)]="model.FullFurnished"  [ngModelOptions]="{standalone: true}">
+                    <input type="checkbox" class="form-check-input " id="exampleCheck1" [(ngModel)]="model.furnished"  [ngModelOptions]="{standalone: true}">
                     <label class="form-check-label " for="exampleCheck1">Full-Furnished</label>
                   </div>
 
                   <div class="form-check col-sm-5 ">
-                    <input type="checkbox" class="form-check-input " id="exampleCheck2" [(ngModel)]="model.SemiFurnished" [ngModelOptions]="{standalone: true}">
+                    <input type="checkbox" class="form-check-input " id="exampleCheck2" [(ngModel)]="model.semiFurnished" [ngModelOptions]="{standalone: true}">
                     <label class="form-check-label " for="exampleCheck2">Semi-Furnished</label>
                   </div>
                 </div>
@@ -292,13 +246,13 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Building Age:</label>
-                <div class="col-sm-9">
-                  <input type="number" class="form-control" formControlName="Age" [(ngModel)]="model.Age" required/>
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p> Building Age:</label>
+                <div class="col-sm-8">
+                  <input type="number" class="form-control" formControlName="buildingAge" [(ngModel)]="model.buildingAge" required/>
                 </div>
               </div>
-              <div *ngIf="angForm.controls['Age'].invalid && (angForm.controls['Age'].dirty || angForm.controls['Age'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['Age'].errors?.required">
+              <div *ngIf="angForm.controls['buildingAge'].invalid && (angForm.controls['buildingAge'].dirty || angForm.controls['buildingAge'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['buildingAge'].errors?.required">
                   Building Age is required.
                 </div>
               </div>
@@ -306,7 +260,7 @@
             <div class="col-md-4">
               <div class="form-group row">
                 <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck3" [(ngModel)]="model.Renovated" [ngModelOptions]="{standalone: true}">
+                  <input type="checkbox" class="form-check-input " id="exampleCheck3" [(ngModel)]="model.renovate" [ngModelOptions]="{standalone: true}">
                   <label class="form-check-label " for="exampleCheck3">Renovated</label>
                 </div>
               </div>
@@ -326,82 +280,36 @@
                     <label class="col-sm-4 col-form-label"><p style="color: red; float: left">*</p>
                       Monthly<br>rent:</label>
                     <div class="col-sm-8">
-                      <input type="number" class="form-control" formControlName="Monthly" [(ngModel)]="model.Monthly" required/>
+                      <input type="number" class="form-control" formControlName="monthlyRent" [(ngModel)]="model.monthlyRent" required/>
                     </div>
                   </div>
                 </div>
               </div>
-              <div *ngIf="angForm.controls['Monthly'].invalid && (angForm.controls['Monthly'].dirty || angForm.controls['Monthly'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['Monthly'].errors?.required">
+              <div *ngIf="angForm.controls['monthlyRent'].invalid && (angForm.controls['monthlyRent'].dirty || angForm.controls['monthlyRent'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['monthlyRent'].errors?.required">
                   Monthly rent is required.
                 </div>
               </div>
             </div>
 
           </div>
-          <div class="row">
-            <div class="col-md-6">
 
-
-              <div class="form-group row">
-                <label class="col-sm-6 col-form-label ">Rent to:</label>
-                <div class="form-check col-sm-3 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck13" [(ngModel)]="model.Iranian" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck13">Iranian</label>
-                </div>
-
-                <div class="form-check col-sm-3 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck23" [(ngModel)]="model.Foreigner" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck23">Foreigner</label>
-                </div>
-              </div>
-
-
-            </div>
-
-            <div class="col-md-6">
-              <div class="form-group row">
-                <label class="col-sm-8 col-form-label">Usage Appropriate to accommodate foreigner:</label>
-                <div class="col-sm-2">
-                  <div class="form-radio">
-                    <label class="form-check-label">
-
-                        <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios11"
-                                value="1" [(ngModel)]="model.radio" [ngModelOptions]="{standalone: true}" >
-                        Yes
-
-
-                    </label>
-                  </div>
-                </div>
-                <div class="col-sm-2">
-                  <div class="form-radio">
-                    <label class="form-check-label">
-                      <input  type="radio" class="form-check-input" name="membershipRadios1" id="membershipRadios21"
-                             value="2" [(ngModel)]="model.radio" [ngModelOptions]="{standalone: true}" >
-                      No
-                    </label>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <p class="card-description">
             Main Features:
           </p>
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left ">*</p>Kitchen:</label>
-                <div class="col-sm-9">
-                  <select class="form-control" formControlName="Kitchen" [(ngModel)]="model.Kitchen" required>
-                    <option>Home</option>
-                    <!--<option></option>-->
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Kitchen:</label>
+                <div class="col-sm-8">
+                  <select class="form-control" formControlName="kitchenService_id" [(ngModel)]="model.kitchenService_id" (change)="GetTextDropDwonKitchenService($event)" required>
+                    <option *ngFor="let i of listarray.listKitchenService" [ngValue]="i.id">{{i.title}}</option>
+
                   </select>
                 </div>
               </div>
-              <div *ngIf="angForm.controls['Kitchen'].invalid && (angForm.controls['Kitchen'].dirty || angForm.controls['Kitchen'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['Kitchen'].errors?.required">
+              <div *ngIf="angForm.controls['kitchenService_id'].invalid && (angForm.controls['kitchenService_id'].dirty || angForm.controls['kitchenService_id'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['kitchenService_id'].errors?.required">
                   Kitchen is required.
                 </div>
               </div>
@@ -409,8 +317,8 @@
             <div class="col-md-4">
               <div class="form-group row">
                 <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck311" [(ngModel)]="model.Openkitchen" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck311">Open Kitchen</label>
+                  <input type="checkbox" class="form-check-input " id="exampleCheck311" [(ngModel)]="model.isAdvertisement" [ngModelOptions]="{standalone: true}">
+                  <label class="form-check-label " for="exampleCheck311">Advertisement</label>
                 </div>
               </div>
             </div>
@@ -419,31 +327,31 @@
           <div class="row">
             <div class="col-md-4">
               <div class="form-group row">
-                <label class="col-sm-3 col-form-label"><p style="color: red; float: left ">*</p>Floor material:</label>
-                <div class="col-sm-9">
-                  <select class="form-control" formControlName="material"  [(ngModel)]="model.material" required>
-                    <option>Home</option>
-                    <!--<option></option>-->
+                <label class="col-sm-4 col-form-label"><p style="color: red; float: left ">*</p>Floor cover:</label>
+                <div class="col-sm-8">
+                  <select class="form-control" formControlName="floorCover_id"  [(ngModel)]="model.floorCover_id" (change)="GetTextDropDwonFloorCover($event)" required>
+                    <option *ngFor="let i of listarray.listFloorCover" [ngValue]="i.id">{{i.title}}</option>
+
                   </select>
                 </div>
               </div>
-              <div *ngIf="angForm.controls['material'].invalid && (angForm.controls['material'].dirty || angForm.controls['material'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['material'].errors?.required">
-                  Floor material is required.
+              <div *ngIf="angForm.controls['floorCover_id'].invalid && (angForm.controls['floorCover_id'].dirty || angForm.controls['floorCover_id'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['floorCover_id'].errors?.required">
+                  Floor cover is required.
                 </div>
               </div>
             </div>
 
             <div class="col-md-2">
               <div class="form-group row">
-                <label class="col-sm-5 col-form-label" style="padding: 0; margin-top: 6px"><p
+                <label class="col-sm-4 col-form-label" style="padding: 0; margin-top: 6px"><p
                   style="color: red; float: left">*</p> Tel Line:</label>
-                <div class="col-sm-7">
-                  <input type="number" class="form-control" formControlName="Tel" [(ngModel)]="model.Tel" required/>
+                <div class="col-sm-8">
+                  <input type="number" class="form-control" formControlName="telLineCount" [(ngModel)]="model.telLineCount" required/>
                 </div>
               </div>
-              <div *ngIf="angForm.controls['Tel'].invalid && (angForm.controls['Tel'].dirty || angForm.controls['Tel'].touched)" class="alert alert-danger">
-                <div *ngIf="angForm.controls['Tel'].errors?.required">
+              <div *ngIf="angForm.controls['telLineCount'].invalid && (angForm.controls['telLineCount'].dirty || angForm.controls['telLineCount'].touched)" class="alert alert-danger">
+                <div *ngIf="angForm.controls['telLineCount'].errors?.required">
                   Tel Line is required.
                 </div>
               </div>
@@ -452,7 +360,7 @@
             <div class="col-md-2">
               <div class="form-group row">
                 <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck391" [(ngModel)]="model.Garage" [ngModelOptions]="{standalone: true}">
+                  <input type="checkbox" class="form-check-input " id="exampleCheck391" [(ngModel)]="model.garage" [ngModelOptions]="{standalone: true}">
                   <label class="form-check-label " for="exampleCheck391">Garage</label>
                 </div>
               </div>
@@ -461,7 +369,7 @@
             <div class="col-md-2">
               <div class="form-group row">
                 <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck321" [(ngModel)]="model.Storage" [ngModelOptions]="{standalone: true}">
+                  <input type="checkbox" class="form-check-input " id="exampleCheck321" [(ngModel)]="model.storage" [ngModelOptions]="{standalone: true}">
                   <label class="form-check-label " for="exampleCheck321">Storage</label>
                 </div>
               </div>
@@ -469,7 +377,7 @@
             <div class="col-md-2">
               <div class="form-group row">
                 <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck31" [(ngModel)]="model.Fire" [ngModelOptions]="{standalone: true}">
+                  <input type="checkbox" class="form-check-input " id="exampleCheck31" [(ngModel)]="model.firePlug" [ngModelOptions]="{standalone: true}">
                   <label class="form-check-label " for="exampleCheck31">Fire Place</label>
                 </div>
               </div>
@@ -481,228 +389,35 @@
           </p>
           <div class="row">
 
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck41" [(ngModel)]="model.Radiator" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck41">Radiator</label>
+            <div class="col-md" >
+              <div class="form-group ">
+                <div class="form-check ">
+                  <label  *ngFor="let i of listarray.listFacility;" class="col-md-3" >
+                  <input type="checkbox" [value]="i.id" [id]="i.id" (change)="setfacility(i.id , $event.target, i.title)" [checked]='i.check' >
+                  {{i.title}}
+                  </label>
                 </div>
               </div>
             </div>
 
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck42" [(ngModel)]="model.Package" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck42">Package</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck43" [(ngModel)]="model.Fan" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck43">Fan air cooler</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck44" [(ngModel)]="model.Chiller" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck44">Chiller</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck45" [(ngModel)]="model.Natural" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck45">Natural gas</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck46" [(ngModel)]="model.Cooler" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck46">Cooler</label>
-                </div>
-              </div>
-            </div>
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck47" [(ngModel)]="model.Yard" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck47">Yard</label>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div class="row">
-
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck51" [(ngModel)]="model.Patio" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck51">Patio</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck52" [(ngModel)]="model.Lift" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck52">Lift</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck53" [(ngModel)]="model.Video" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck53">Video entry</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck54" [(ngModel)]="model.Garagedooropener" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck54">Garage door opener</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck55" [(ngModel)]="model.centraltvantenna" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck55">central tv antenna</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck56" [(ngModel)]="model.Vacant" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck56">Vacant</label>
-                </div>
-              </div>
-            </div>
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck57" [(ngModel)]="model.Sauna" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck57">Sauna</label>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          <div class="row">
-
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck61" [(ngModel)]="model.Swimming" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck61">Swimming</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck62" [(ngModel)]="model.Jacuzzi" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck62">Jacuzzi</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck63" [(ngModel)]="model.Balcony" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck63">Balcony</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck64" [(ngModel)]="model.Lobby" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck64">Lobby</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck65" [(ngModel)]="model.Meeting" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck65">Meeting</label>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck66" [(ngModel)]="model.Janitor" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck66">Janitor</label>
-                </div>
-              </div>
-            </div>
-            <div class="col-md">
-              <div class="form-group row">
-                <div class="form-check offset-sm-1 ">
-                  <input type="checkbox" class="form-check-input " id="exampleCheck67" [(ngModel)]="model.ADSL" [ngModelOptions]="{standalone: true}">
-                  <label class="form-check-label " for="exampleCheck67">ADSL</label>
-                </div>
-              </div>
-            </div>
 
           </div>
           <br>
           <hr>
           <br>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group row">
-                <label class="col-sm-3 col-form-label">Status:</label>
-                <div class="col-sm-9">
-                  <select class="form-control" [(ngModel)]="model.Status" [ngModelOptions]="{standalone: true}">
-                    <option>Home</option>
-                    <!--<option></option>-->
-                  </select>
-                </div>
-              </div>
-            </div>
-          </div>
           <p class="card-description">
             SEO:
           </p>
           <div class="row">
             <div class="form-group col">
               <label for="exampleTextarea13">SEO-Description:</label>
-              <textarea class="form-control" id="exampleTextarea13" rows="2" [(ngModel)]="model.SEODescription" [ngModelOptions]="{standalone: true}"></textarea>
+              <textarea class="form-control" id="exampleTextarea13" rows="2" [(ngModel)]="model.seoDescription" [ngModelOptions]="{standalone: true}"></textarea>
             </div>
           </div>
           <div class="row">
             <div class="form-group col">
               <label for="exampleTextarea12">SEO-Title:</label>
-              <textarea class="form-control" id="exampleTextarea12" rows="2" [(ngModel)]="model.SEOTitle" [ngModelOptions]="{standalone: true}"></textarea>
+              <textarea class="form-control" id="exampleTextarea12" rows="2" [(ngModel)]="model.seoTitle" [ngModelOptions]="{standalone: true}"></textarea>
             </div>
           </div>
 
@@ -712,8 +427,8 @@
     </div>
   </div>
 
-  <div class="col-md-3 offset-md-9">
-    <button type="submit" class="btn btn-primary btn-fw" [disabled]="angForm.invalid" (click)="onSubmit()">Save & Continue</button>
+  <div class="col-md-3 offset-md">
+    <button type="submit" class="btn btn-primary btn-fw" [disabled]="angForm.invalid" (click)="VisibleEvent()">Save & Continue</button>
   </div>
 </div>
 

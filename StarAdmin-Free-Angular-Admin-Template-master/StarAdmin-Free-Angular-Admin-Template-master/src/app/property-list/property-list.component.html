@@ -1,6 +1,113 @@
+<div class="row">
+  <div class="col-lg grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h2 class="card-title text-primary mb-5">Refine Your Search</h2>
+        <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="exampleSelectPrimary73">Advisor</label>
+            <select class="form-control border-primary" id="exampleSelectPrimary73" [(ngModel)]="param.adviserId" >
+              <option *ngFor="let i of searchBase?.listAdvisor"  [ngValue]="i.Id">{{i.fullName}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="exampleSelectPrimary23">Status</label>
+            <select class="form-control border-primary" id="exampleSelectPrimary23" [(ngModel)]="param.statusId" >
+              <option *ngFor="let i of searchBase?.listStatus" [ngValue]="i.id">{{i.title}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="exampleSelectPrimary40">Region</label>
+            <select class="form-control border-primary" id="exampleSelectPrimary40" [(ngModel)]="param.regionId" >
+              <option *ngFor="let i of searchBase?.listRegion" [ngValue]="i.id">{{i.title}}</option>
+            </select>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col">
+          <div class="form-group">
+            <label for="exampleSelectPrimary39">Property Type</label>
+            <select class="form-control border-primary" id="exampleSelectPrimary39" [(ngModel)]="param.propertyId" >
+              <option *ngFor="let i of searchBase?.listPropertys" [ngValue]="i.id">{{i.title}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="exampleSelectPrimary38">Property Size</label>
+            <select class="form-control border-primary" id="exampleSelectPrimary38" [(ngModel)]="param.areaRangeId" >
+              <option *ngFor="let i of searchBase?.listArea" [ngValue]="i.id" >{{i.title}}</option>
+
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="exampleSelectPrimary37">Price Range</label>
+            <select  class="form-control border-primary" id="exampleSelectPrimary37" [(ngModel)]="param.priceRangeId" >
+              <option *ngFor="let i of searchBase?.listPrice" [ngValue]="i.id">{{i.title}}</option>
+            </select>
+          </div>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col">
+        <div class="row">
+          <div class="col-6">
+            <div class="form-group">
+              <label for="exampleSelectPrimary35">Bed(s)</label>
+              <select class="form-control border-primary" id="exampleSelectPrimary35" [(ngModel)]="param.bedroomCount" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">+3</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="exampleSelectPrimary36">Bath(s)</label>
+              <select class="form-control border-primary" id="exampleSelectPrimary36"  [(ngModel)]="param.bathroomCount" >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">+3</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="exampleSelectPrimary43">Furnish</label>
+            <select class="form-control border-primary" id="exampleSelectPrimary43" [(ngModel)]="param.decoratId" >
+              <option *ngFor="let i of searchBase?.listDecorat" [ngValue]="i.id">{{i.title}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-group">
+            <label for="exampleInputName1">By Code</label>
+            <input type="number" class="form-control" id="exampleInputName1" placeholder="" [(ngModel)]="param.depoistId">
+          </div>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 offset-md-8" >
+          <button type="button" class="btn btn-info btn-block"  (click)="SearchSubmit()"><i class="fa fa-search"></i></button>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <div class="row">
-  <div class="col-lg-9 grid-margin stretch-card">
+  <div class="col-lg grid-margin stretch-card">
     <div class="card">
       <div class="card-body">
         <div class="row">
@@ -22,11 +129,10 @@
           </select>
         </div>
         </div>
-        <div class="col-md-4 col-sm-6 offset-md-3">
+        <div class="col-md-4 col-sm-6">
           <div class="card">
             <div class="card-body">
-
-              <ngb-pagination [collectionSize]="40" [pageSize]="10" [page]="1" aria-label="Default pagination" class="pagination-rounded"></ngb-pagination>
+              <ngb-pagination [collectionSize]="depositCount.count" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" [directionLinks]="true" [pageSize]="depositCount.size" [page]="1" aria-label="Default pagination" class="pagination-rounded" (pageChange)="onPageChange($event)"></ngb-pagination>
             </div>
           </div>
         </div>
@@ -46,7 +152,7 @@
                 Location
               </th>
               <th>
-                Adviser
+                Advisor
               </th>
               <th>
                 Type
@@ -72,235 +178,37 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
+            <tr *ngFor="let i of depositList">
               <td>
-                1
+                {{i.id}}
               </td>
               <td>
-                Herman Beck
-              </td>
-
-              <td>
-                $ 77.99
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                <button type="button" class="btn btn-primary btn-rounded btn-xs">Edit</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                2
-              </td>
-              <td>
-                Messsy Adam
+                {{i.regionTitle}}
               </td>
 
               <td>
-                $245.30
+                {{i.adviser}}
               </td>
               <td>
-                July 1, 2015
+                {{i.propertyTitle}}
               </td>
               <td>
-                May 15, 2015
+                {{i.buildingArea}}
               </td>
               <td>
-                May 15, 2015
+                {{i.monthlyRent}}
               </td>
               <td>
-                May 15, 2015
+                {{i.writeDate}}
               </td>
               <td>
-                May 15, 2015
+                {{i.viewCount}}
               </td>
               <td>
-                May 15, 2015
+                {{i.imageCount}}
               </td>
               <td>
-                <button type="button" class="btn btn-primary btn-rounded btn-xs">Edit</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                3
-              </td>
-              <td>
-                John Richards
-              </td>
-
-              <td>
-                $138.00
-              </td>
-              <td>
-                Apr 12, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-              May 15, 2015
-            </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                <button type="button" class="btn btn-primary btn-rounded btn-xs">Edit</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                4
-              </td>
-              <td>
-                Peter Meggik
-              </td>
-
-              <td>
-                $ 77.99
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                <button type="button" class="btn btn-primary btn-rounded btn-xs">Edit</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                5
-              </td>
-              <td>
-                Edward
-              </td>
-
-              <td>
-                $ 160.25
-              </td>
-              <td>
-                May 03, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                <button type="button" class="btn btn-primary btn-rounded btn-xs">Edit</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                6
-              </td>
-              <td>
-                John Doe
-              </td>
-
-              <td>
-                $ 123.21
-              </td>
-              <td>
-                April 05, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                <button type="button" class="btn btn-primary btn-rounded btn-xs">Edit</button>
-              </td>
-            </tr>
-            <tr>
-              <td>
-                7
-              </td>
-              <td>
-                Henry Tom
-              </td>
-
-              <td>
-                $ 150.00
-              </td>
-              <td>
-                June 16, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                May 15, 2015
-              </td>
-              <td>
-                <button type="button" class="btn btn-primary btn-rounded btn-xs">Edit</button>
+                <button type="button" class="btn btn-primary btn-rounded btn-xs"  (click)="EditButton(i.id)">Edit</button>
               </td>
             </tr>
             </tbody>
@@ -321,133 +229,6 @@
         </div>
       </div>
 
-    </div>
-  </div>
-  <div class="col-lg-3 grid-margin stretch-card">
-    <div class="card">
-      <div class="card-body">
-        <h2 class="card-title text-primary mb-5">Refine Your Search</h2>
-        <div class="col">
-          <div class="form-group">
-            <label for="exampleSelectPrimary73">Advisor</label>
-            <select class="form-control border-primary" id="exampleSelectPrimary73">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="exampleSelectPrimary23">Status</label>
-            <select class="form-control border-primary" id="exampleSelectPrimary23">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="exampleSelectPrimary40">Region</label>
-            <select class="form-control border-primary" id="exampleSelectPrimary40">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="exampleSelectPrimary39">Property Type</label>
-            <select class="form-control border-primary" id="exampleSelectPrimary39">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="exampleSelectPrimary38">Property Size</label>
-            <select class="form-control border-primary" id="exampleSelectPrimary38">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="exampleSelectPrimary37">Price Range</label>
-            <select class="form-control border-primary" id="exampleSelectPrimary37">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <div class="form-group">
-              <label for="exampleSelectPrimary35">Bed(s)</label>
-              <select class="form-control border-primary" id="exampleSelectPrimary35">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="form-group">
-              <label for="exampleSelectPrimary36">Bath(s)</label>
-              <select class="form-control border-primary" id="exampleSelectPrimary36">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-              </select>
-            </div>
-          </div>
-
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="exampleSelectPrimary43">Furnish</label>
-            <select class="form-control border-primary" id="exampleSelectPrimary43">
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
-            </select>
-          </div>
-        </div>
-        <div class="col">
-          <div class="form-group">
-            <label for="exampleInputName1">By Code</label>
-            <input type="text" class="form-control" id="exampleInputName1" placeholder="">
-          </div>
-        </div>
-        <div class="col">
-          <button type="button" class="btn social-btn btn-warning btn-rounded"><i class="fa fa-search"></i></button>
-        </div>
-      </div>
     </div>
   </div>
 </div>

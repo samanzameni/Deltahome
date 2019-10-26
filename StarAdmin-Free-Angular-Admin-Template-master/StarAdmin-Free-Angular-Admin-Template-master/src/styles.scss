@@ -52,19 +52,21 @@
 /* You can add global styles to this file, and also import other style files */
 
 .toast-container {
-  pointer-events: none;
-  position: fixed;
-  z-index: 999999;
+  pointer-events: none !important;
+  position: fixed !important;
+  z-index: 999999 !important;
 }
 .toast-top-right {
-  bottom: 12px;
-  right: 12px;
-  color: #ffffff;
-  background-color: #e65251;
-  border-color: #e65251;
-  padding: 20px;
-  border-radius: 20px;
+  top: auto !important;
+  bottom: 3% !important;
+  right: 3% !important;
+  color: #ffffff !important;
 }
 #toast-container > div {
   opacity:1;
+}
+
+.toast-message
+{
+  margin: 15px;
 }

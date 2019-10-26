@@ -34,6 +34,12 @@ import { IndexComponent } from './index/index.component';
 import { PropertyListComponent } from './property-list/property-list.component';
 import { ImageuploadComponent } from './imageupload/imageupload.component';
 import { BaseInfoComponent } from './base-info/base-info.component';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
+import { LeafletComponent } from './leaflet/leaflet.component';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { SetDepositComponent } from './set-deposit/set-deposit.component';
+import { ReviewComponent } from './review/review.component';
+
 
 
 
@@ -66,7 +72,10 @@ import { BaseInfoComponent } from './base-info/base-info.component';
     IndexComponent,
     PropertyListComponent,
     ImageuploadComponent,
-    BaseInfoComponent
+    BaseInfoComponent,
+    LeafletComponent,
+    SetDepositComponent,
+    ReviewComponent
   ],
   imports: [
     BrowserModule,
@@ -77,7 +86,9 @@ import { BaseInfoComponent } from './base-info/base-info.component';
     HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    LeafletModule.forRoot(),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

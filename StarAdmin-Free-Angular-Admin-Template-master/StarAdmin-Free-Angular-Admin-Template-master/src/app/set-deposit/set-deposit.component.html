@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <div class="row" *ngIf="AddVisibleComp">
+        <div class="col-md">
+          <app-zameniform (Event)="MapVisible()" (AddPropertyEvent)="FillSetModel($event)"></app-zameniform>
+        </div>
+      </div>
+      <div *ngIf="MapVisibleComp">
+        <div class="row">
+          <div class="col-md">
+            <app-imageupload [depositImgEdit]="Setmodel.depositImg"  (imageEvent)="receivePathImage($event)" (selectedEvent)="receiveBasePathImage($event)"></app-imageupload>
+          </div>
+        </div>
+        <br>
+        <hr>
+        <br>
+        <div class="row">
+        <div class="col-md">
+          <app-leaflet [longiParent]="Setmodel.longitude" [latiParent]="Setmodel.latitude" (messageEvent)="receiveModel($event)"></app-leaflet>
+        </div>
+      </div>
+      </div>
+      <div class="row" *ngIf="ReviewVisibleComp">
+        <div class="row">
+        <div class="col-md">
+          <app-review [reviewModel] = "Setmodel"></app-review>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-md">
+            <button type="submit" class="btn btn-primary btn-fw" (click)="OnSubmitAll()">Send Message</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+

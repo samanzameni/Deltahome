@@ -23,9 +23,12 @@ import {IndexComponent} from './index/index.component';
 import {PropertyListComponent} from './property-list/property-list.component';
 import {ImageuploadComponent} from './imageupload/imageupload.component';
 import {BaseInfoComponent} from './base-info/base-info.component';
+import {LeafletComponent} from './leaflet/leaflet.component';
+import {SetDepositComponent} from './set-deposit/set-deposit.component';
+import {ReviewComponent} from './review/review.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
+  { path: '', redirectTo: '/Index', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'forms', component: FormsComponent },
   { path: 'buttons', component: ButtonsComponent},
@@ -42,12 +45,15 @@ const routes: Routes = [
   { path: 'tooltips', component: TooltipsComponent },
   { path: 'carousel', component: CarouselComponent },
   { path: 'tabs', component: TabsComponent },
-  { path: 'zameniform', component: ZameniformComponent},
+  { path: 'AddProperty', component: ZameniformComponent},
   { path: 'Login', component: LoginComponent},
   { path: 'Index', component: IndexComponent},
   { path: 'PropertyList', component: PropertyListComponent},
   { path: 'ImageUpload', component: ImageuploadComponent},
   { path: 'BaseInfo', component: BaseInfoComponent},
+  { path: 'leaflet', component: LeafletComponent},
+  { path: 'SetDeposit', component: SetDepositComponent},
+  { path: 'Review', component: ReviewComponent},
 ];
 
 @NgModule({

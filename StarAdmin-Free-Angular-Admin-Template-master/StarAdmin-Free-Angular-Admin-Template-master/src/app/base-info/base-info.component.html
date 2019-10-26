@@ -14,11 +14,11 @@
           <div class="row">
             <div class="col-md-2">
               <div class="form-group row">
-                <div class="col-sm">
+                <div class="col-sm offset-1">
                   <div class="form-radio">
                     <label class="form-check-label">
 
-                      <input  type="radio" class="form-check-input" name="4" id="membershipRadios111"
+                      <input  type="radio" class="form-check-input" name="15" id="membershipRadios111"
                               value="1" [(ngModel)]="base.RegionAddEdit" [ngModelOptions]="{standalone: true}" >
                       Add
                     </label>
@@ -27,7 +27,7 @@
                 <div class="col-sm">
                   <div class="form-radio">
                     <label class="form-check-label">
-                      <input  type="radio" class="form-check-input" name="4" id="membershipRadios211"
+                      <input  type="radio" class="form-check-input" name="15" id="membershipRadios211"
                               value="2" [(ngModel)]="base.RegionAddEdit" [ngModelOptions]="{standalone: true}" >
                       Edit
                     </label>
@@ -39,7 +39,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Country:</label>
                 <div class="col-sm-9">
-                  <select class="form-control"  [(ngModel)]="base.RegionCountry"   >
+                  <select class="form-control"  [(ngModel)]="base.RegionCountry"  [ngModelOptions]="{standalone: true}" >
                     <option>Home</option>
                     <!--<option></option>-->
                   </select>
@@ -71,7 +71,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">State:</label>
                 <div class="col-sm-9">
-                  <select class="form-control"  [(ngModel)]="base.RegionState" required>
+                  <select class="form-control"  [(ngModel)]="base.RegionState" required [ngModelOptions]="{standalone: true}">
                     <option>Home</option>
                     <!--<option></option>-->
                   </select>
@@ -99,7 +99,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">City:</label>
                 <div class="col-sm-9">
-                  <select class="form-control"  [(ngModel)]="base.RegionCity" required>
+                  <select class="form-control"  [(ngModel)]="base.RegionCity" required [ngModelOptions]="{standalone: true}">
                     <option>Home</option>
                     <!--<option></option>-->
                   </select>
@@ -121,7 +121,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Region:</label>
                 <div class="col-sm-9">
-                  <select class="form-control"  [(ngModel)]="base.RegionRegion" required>
+                  <select class="form-control"  [(ngModel)]="base.RegionRegion" required [ngModelOptions]="{standalone: true}">
                     <option>Home</option>
                     <!--<option></option>-->
                   </select>
@@ -141,7 +141,7 @@
           <div class="row">
             <div class="col-md-2">
               <div class="form-group row">
-                <div class="col-sm">
+                <div class="col-sm offset-1">
                   <div class="form-radio">
                     <label class="form-check-label">
 
@@ -156,7 +156,7 @@
                     <label class="form-check-label">
                       <input  type="radio" class="form-check-input" name="321" id="membershipRadios321"
                               value="1" [(ngModel)]="base.FloorCoverAddEdit" [ngModelOptions]="{standalone: true}" >
-                      Edit
+                      Edit 
                     </label>
                   </div>
                 </div>
@@ -166,7 +166,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Type:</label>
                 <div class="col-sm-9">
-                  <select class="form-control"  [(ngModel)]="base.FloorCoverType" required>
+                  <select class="form-control"  [(ngModel)]="base.FloorCoverType" required [ngModelOptions]="{standalone: true}">
                     <option>Home</option>
                     <!--<option></option>-->
                   </select>
@@ -177,7 +177,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label"><p style="color: red; float: left">*</p> Add/Edit:</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" formControlName="FloorCoverAddEditInput" [(ngModel)]="base.FloorCoverAddEditInput" required/>
+                  <input type="text" class="form-control" formControlName="FloorCoverAddEditInput" [(ngModel)]="base.FloorCoverAddEditInput" required />
                 </div>
               </div>
               <div *ngIf="baseForm.controls['FloorCoverAddEditInput'].invalid && (baseForm.controls['FloorCoverAddEditInput'].dirty || baseForm.controls['FloorCoverAddEditInput'].touched)" class="alert alert-danger">
@@ -196,7 +196,7 @@
           <div class="row">
             <div class="col-md-2">
               <div class="form-group row">
-                <div class="col-sm">
+                <div class="col-sm offset-1">
                   <div class="form-radio">
                     <label class="form-check-label">
 
@@ -221,7 +221,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Type:</label>
                 <div class="col-sm-9">
-                  <select class="form-control" [(ngModel)]="base.KitchenServiceType" required>
+                  <select class="form-control" [(ngModel)]="base.KitchenServiceType" required [ngModelOptions]="{standalone: true}">
                     <option>Home</option>
                     <!--<option></option>-->
                   </select>
@@ -251,7 +251,7 @@
           <div class="row">
             <div class="col-md-2">
               <div class="form-group row">
-                <div class="col-sm">
+                <div class="col-sm offset-1">
                   <div class="form-radio">
                     <label class="form-check-label">
 
@@ -276,7 +276,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Type:</label>
                 <div class="col-sm-9">
-                  <select class="form-control"  [(ngModel)]="base.FacilityType" required>
+                  <select class="form-control"  [(ngModel)]="base.FacilityType" required [ngModelOptions]="{standalone: true}">
                     <option>Home</option>
                     <!--<option></option>-->
                   </select>
@@ -306,8 +306,8 @@
           <div class="row">
             <div class="col-md-2">
               <div class="form-group row">
-                <div class="col-sm">
-                  <div class="form-radio">
+                <div class="col-sm offset-1">
+                  <div class="form-radio ">
                     <label class="form-check-label">
 
                       <input  type="radio" class="form-check-input" name="3" id="membershipRadios611"
@@ -331,7 +331,7 @@
               <div class="form-group row">
                 <label class="col-sm-3 col-form-label">Type:</label>
                 <div class="col-sm-9">
-                  <select class="form-control" [(ngModel)]="base.PropertyType" required>
+                  <select class="form-control" [(ngModel)]="base.PropertyType" required [ngModelOptions]="{standalone: true}">
                     <option>Home</option>
                     <!--<option></option>-->
                   </select>
